@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
 import './App.css';
+import Keys from './config/keys';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      issues: '',
+      errorMessage: ''
+    };
+  }
+
+  componentDidMount() {
+    axios.get(`https://api.github.com/search/issues?q=pyton&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}`)
+    .then(res => {
+      console.log(res.data);
+      this.setState({ issues: res.data});
+    },
+    err => {
+      console.log(err.message);
+      this.setState({errorMessage: err.message});
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        'hello there' I have a total count of {this.state.issues.total_count}
       </div>
     );
   }
