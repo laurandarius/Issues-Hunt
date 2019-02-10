@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Description from './components/Description';
 import SearchBar from './components/SearchBar';
 import ResultsHeader from './components/ResultsHeader'
+import ResultsList from './components/ResultsList'
 
 class App extends Component {
   constructor(props) {
@@ -37,6 +38,7 @@ class App extends Component {
           <Description />
           <SearchBar />
           <ResultsHeader />
+          <ResultsList />
         </div>
       </div>
     );

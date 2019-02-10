@@ -11,21 +11,21 @@ const ResultsHeader = () => {
       </Card.Body>
       <DropdownButton
         id="Language"
+        title="Label"
+        className="DropdownButton"
+        >
+        <Dropdown.Item as="button"><i className="fas fa-square"></i> Good First Issue</Dropdown.Item>
+        <Dropdown.Item as="button"><i className="fas fa-square"></i> Help Wanted</Dropdown.Item>
+        <Dropdown.Item as="button"><i className="fas fa-square"></i> Bug</Dropdown.Item>
+      </DropdownButton>
+      <DropdownButton
+        id="Language"
         title="Language"
         className="DropdownButton"
         >
         <Dropdown.Item as="button">JavaScript</Dropdown.Item>
         <Dropdown.Item as="button">Ruby</Dropdown.Item>
         <Dropdown.Item as="button">Python</Dropdown.Item>
-      </DropdownButton>
-      <DropdownButton
-        id="Language"
-        title="Label"
-        className="DropdownButton"
-        >
-        <Dropdown.Item as="button">Good First Issue</Dropdown.Item>
-        <Dropdown.Item as="button">Help Wanted</Dropdown.Item>
-        <Dropdown.Item as="button">Bug</Dropdown.Item>
       </DropdownButton>
     </Card>
   );
