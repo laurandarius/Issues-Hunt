@@ -3,7 +3,10 @@ import axios from 'axios';
 import './App.css';
 import Keys from './config/keys';
 
-import Header from './components/Header.js'
+import Header from './components/Header';
+import Description from './components/Description';
+import SearchBar from './components/SearchBar';
+import ResultsHeader from './components/ResultsHeader'
 
 class App extends Component {
   constructor(props) {
@@ -30,6 +33,11 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <div className="container">
+          <Description />
+          <SearchBar />
+          <ResultsHeader />
+        </div>
       </div>
     );
   }
