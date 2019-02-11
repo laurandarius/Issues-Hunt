@@ -1,5 +1,32 @@
 .description {
-  margin-top: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 1.8rem;
+  border: 1px solid #e1e4e8;
+  border-radius: 3px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.SearchBar {
+  width: 70%;
+  margin-bottom: 1rem;
+}
+
+.search-button {
+  color: #444d56;
+  background-color: #eff3f6;
+  background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+  border: 1px solid rgba(27,31,35,.2);
+  border-radius: .25em;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+  color: #444d56;
+  background-color: #d7dadd;
+  background-image: none;
+  border-color: #babbbd; /*set the color you want here*/
 }
 
 /* Header for results */
@@ -9,12 +36,21 @@
 
 .ResultsHeader {
   width: 100%;
+  padding: .5rem;
+  background-color: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 3px 3px 0 0;
+}
+
+.open-issues {
+  margin: 6px;
+  margin-left: 1rem;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .DropdownButton {
   float: right;
-  margin-top: .7rem;
-  margin-right: .4rem;
 }
 
 /* one issues results card */
@@ -45,14 +81,15 @@
 }
 
 .comments {
-  width: 3.5rem;
+  width: 4rem;
   float: right;
+  font-size: 14px;
 }
 
 .issues-github-link {
   color: #586069;
 }
-/* from github */
+ /* from github */
 .good-first-issue {
   background-color: #7057ff;
   color: #ffffff;

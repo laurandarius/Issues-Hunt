@@ -6,9 +6,7 @@ import Card from 'react-bootstrap/Card';
 const ResultsHeader = () => {
   return (
     <Card className="ResultsHeader">
-      <Card.Body className="open-issues">
-        <i className="fas fa-exclamation-circle"></i> 350 Open
-      </Card.Body>
+      <div className="open-issues"><i className="fas fa-exclamation-circle"></i> 350 Open</div>
       <DropdownButton
         id="Language"
         title="Label"

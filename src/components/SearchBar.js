@@ -14,7 +14,9 @@ const SearchBar = () => {
           aria-describedby="basic-addon2"
         />
         <InputGroup.Append>
-          <Button variant="outline-secondary">Search</Button>
+          <Button className="search-button">
+            Search
+          </Button>
         </InputGroup.Append>
       </InputGroup>
     </Form>
