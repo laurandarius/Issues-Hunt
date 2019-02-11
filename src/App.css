@@ -2,6 +2,7 @@
   margin-top: 1rem;
 }
 
+/* Header for results */
 .ResultsHeader, .open-issues, .DropdownButton  {
   display: inline-block;
 }
@@ -14,4 +15,50 @@
   float: right;
   margin-top: .7rem;
   margin-right: .4rem;
+}
+
+/* one issues results card */
+.issues-container,
+.exclamation, .comment,
+.title-description-container {
+  display: inline-block;
+}
+
+.issues-container {
+  padding: .5rem;
+}
+
+.exclamation {
+  width: 2.8rem;
+  height: 100%;
+  padding-left: 16px;
+  float: left;
+}
+
+.title-description-container {
+  width: 85%;
+}
+
+.comments {
+  width: 3.5rem;
+  float: right;
+}
+.issues-github-link {
+  color: #586069;
+}
+.issues-title {
+  margin-bottom: 0.3rem;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.issues-description {
+  margin-bottom: 0;
+  font-size: 12px;
+}
+
+.spinner-container {
+  margin: 0 auto;
+  margin-top: .5rem;
+  width: 100px;
 }
