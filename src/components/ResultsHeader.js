@@ -12,9 +12,30 @@ const ResultsHeader = (props) => {
         title="Label"
         className="DropdownButton"
         >
-        <Dropdown.Item as="button"><i className="fas fa-square"></i> Good First Issue</Dropdown.Item>
-        <Dropdown.Item as="button"><i className="fas fa-square"></i> Help Wanted</Dropdown.Item>
-        <Dropdown.Item as="button"><i className="fas fa-square"></i> Bug</Dropdown.Item>
+        <Dropdown.Item
+          as="button"
+          data-id="good+first+issue"
+          onClick={props.labelSearch}>
+          Good First Issue
+        </Dropdown.Item>
+        <Dropdown.Item
+          as="button"
+          data-id="help+wanted"
+          onClick={props.labelSearch}>
+          Help Wanted
+        </Dropdown.Item>
+        <Dropdown.Item
+          as="button"
+          data-id="bug"
+          onClick={props.labelSearch}>
+          Bug
+        </Dropdown.Item>
+        <Dropdown.Item
+          as="button"
+          data-id="hacktoberfest"
+          onClick={props.labelSearch}>
+          Hacktoberfest
+        </Dropdown.Item>
       </DropdownButton>
       <DropdownButton
         id="Language"

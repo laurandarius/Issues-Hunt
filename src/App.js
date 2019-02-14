@@ -16,6 +16,7 @@ class App extends Component {
     this.state = {
       issues: '',
       returnedAPI: 'no',
+      spinner: 'hide',
       errorMessage: '',
       input:''
     };
@@ -37,13 +38,45 @@ class App extends Component {
     this.setState({input: event.target.value});
   }
 
+  //only search for open issues
   searchIssues(event) {
     event.preventDefault();
+    this.setState({
+      returnedAPI:'pending',
+      spinner: 'show'
+    })
     const value = this.state.input;
-    axios.get(`https://api.github.com/search/issues?q=${value}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}`)
+    axios.get(`https://api.github.com/search/issues?q=${value}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}+state:open`)
      .then(res => {
        console.log(res.data);
-       this.setState({ issues: res.data, returnedAPI: 'yes'});
+       this.setState({
+         issues: res.data,
+         returnedAPI: 'yes',
+         spinner: 'hide'
+       });
+     },
+     err => {
+       console.log(err.message);
+       this.setState({errorMessage: err.message});
+     })
+  }
+
+  labelSearch(event) {
+    event.preventDefault();
+    this.setState({
+      returnedAPI:'pending',
+      spinner: 'show'
+    })
+    const label = `"${event.target.dataset.id}"`;
+    const value = this.state.input;
+    axios.get(`https://api.github.com/search/issues?q=${value}+label:${label}+state:open&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}`)
+     .then(res => {
+       console.log(res.data);
+       this.setState({
+         issues: res.data,
+         returnedAPI: 'yes',
+         spinner: 'hide'
+       });
      },
      err => {
        console.log(err.message);
@@ -54,8 +87,10 @@ class App extends Component {
   ResultsListRender() {
     if (this.state.returnedAPI === 'yes') {
       return <ResultsList issuesReturn={this.state.issues}/>;
-    } else {
+    } else if (this.state.spinner ==='show' && this.state.returnedAPI !== 'yes' ){
       return <Spinner />;
+    } else {
+      return null;
     }
   }
 
@@ -70,7 +105,10 @@ class App extends Component {
             searchIssues={event => this.searchIssues(event)}
             input={this.state.input}
           />
-          <ResultsHeader totalCount={this.state.issues.total_count}/>
+          <ResultsHeader
+            labelSearch={event => this.labelSearch(event)}
+            totalCount={this.state.issues.total_count}
+          />
           {this.ResultsListRender()}
         </div>
       </div>
