@@ -1,9 +1,9 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import Labels from './Labels.js'
 
 //adjust container at different screen sizes
 const ResultsList = (props) => {
-  
   const results = props.issuesReturn.items.map(item =>
     <Card key={item.id}>
       <div className="issues-container">
@@ -16,10 +16,9 @@ const ResultsList = (props) => {
               <span className="issues-github-link"></span>
               <a href={item.html_url}>{item.title}</a>
             </p>
-            <div className="good-first-issue issue-label">Good First Issue</div>
-            <div className="help-wanted issue-label">Help Wanted</div>
+            <Labels labels={item.labels}/>
           </div>
-          <p className="issues-description">#{item.number} opened on Aug 01, 2001 by {item.user.login}</p>
+          <p className="issues-description">#{item.number} opened on {item.created_at} by {item.user.login}</p>
         </div>
         <div className="comments"><i className="far fa-comment-alt"></i> {item.comments}</div>
       </div>

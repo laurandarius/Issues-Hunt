@@ -90,16 +90,9 @@
   color: #586069;
 }
  /* from github */
-.good-first-issue {
-  background-color: #7057ff;
-  color: #ffffff;
+.issues-label-container {
+  display: inline-block;
 }
-
-.help-wanted {
-    background-color: #fbca04;
-    color: #000000;
-}
-
 .issue-label {
   border-radius: 2px;
   box-shadow: inset 0 -1px 0 rgba(27,31,35,.12);
