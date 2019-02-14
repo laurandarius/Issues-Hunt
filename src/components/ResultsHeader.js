@@ -3,10 +3,10 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Card from 'react-bootstrap/Card';
 
-const ResultsHeader = () => {
+const ResultsHeader = (props) => {
   return (
     <Card className="ResultsHeader">
-      <div className="open-issues"><i className="fas fa-exclamation-circle"></i> 350 Open</div>
+      <div className="open-issues"><i className="fas fa-exclamation-circle"></i> {props.totalCount} Open</div>
       <DropdownButton
         id="Language"
         title="Label"

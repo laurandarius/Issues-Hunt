@@ -7,8 +7,8 @@ const Spinner = () => {
       <Loader
         type="TailSpin"
         color="#00BFFF"
-        height="100"
-        width="100"
+        height="75"
+        width="75"
       />
     </div>
   );
