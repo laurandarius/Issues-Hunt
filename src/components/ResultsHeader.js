@@ -2,6 +2,7 @@ import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Card from 'react-bootstrap/Card';
 import DropdownLabel from './DropdownLabel';
+import DropdownLanguage from './DropdownLanguage';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
 const ResultsHeader = (props) => {
@@ -12,16 +13,11 @@ const ResultsHeader = (props) => {
         {props.totalCount} Open
       </div>
       <DropdownLabel
-        onHover={props.onHover} 
+        onHoverLabel={props.onHoverLabel}
         labelSearch={props.labelSearch}/>
-      <DropdownButton
-        id="Language"
-        title="Language"
-        className="DropdownButton">
-        <Dropdown.Item as="button">JavaScript</Dropdown.Item>
-        <Dropdown.Item as="button">Ruby</Dropdown.Item>
-        <Dropdown.Item as="button">Python</Dropdown.Item>
-      </DropdownButton>
+      <DropdownLanguage
+        onHoverlanguage={props.onHoverlanguage}
+        languageSearch={props.languageSearch}/>
     </Card>
   );
 }

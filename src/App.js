@@ -68,19 +68,18 @@ class App extends Component {
      })
   }
 
-  //only search for open issues
-  searchIssues(event) {
-    event.preventDefault();
-    this.showSpinner();
-    this.callAPI();
-  }
   //set the state as soon as mouse hovers dropdown
   //then use state values to make API call
-  onHover(event) {
+  onHoverLabel(event) {
     this.setState({label: `"${event.target.dataset.id}"`});
   }
 
-  labelSearch(event) {
+  onHoverlanguage(event) {
+    this.setState({language: event.target.dataset.id});
+  }
+
+  //only search for open issues
+  search(event) {
     event.preventDefault();
     this.showSpinner();
     this.callAPI();
@@ -104,13 +103,15 @@ class App extends Component {
           <Description />
           <SearchBar
             searchInput={event => this.searchInput(event)}
-            searchIssues={event => this.searchIssues(event)}
+            searchIssues={event => this.search(event)}
             input={this.state.input}
           />
           <ResultsHeader
-            labelSearch={event => this.labelSearch(event)}
+            labelSearch={event => this.search(event)}
+            languageSearch={event => this.search(event)}
             totalCount={this.state.issues.total_count}
-            onHover={event => this.onHover(event)}
+            onHoverLabel={event => this.onHoverLabel(event)}
+            onHoverlanguage={event => this.onHoverlanguage(event)}
           />
           {this.ResultsListRender()}
         </div>

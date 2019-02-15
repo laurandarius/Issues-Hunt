@@ -15,7 +15,7 @@ const DropdownLabel = (props) => {
       key={label[0]}
       as="button"
       data-id={label[0]}
-      onMouseEnter={props.onHover}
+      onMouseEnter={props.onHoverLabel}
       onClick={props.labelSearch}>
       {label[1]}
     </Dropdown.Item>
@@ -23,7 +23,7 @@ const DropdownLabel = (props) => {
 
   return(
     <DropdownButton
-      id="LabelDropDown"
+      id="LabelDropdown"
       title="Label"
       className="DropdownButton">
       {DropdownItem}
