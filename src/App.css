@@ -45,7 +45,7 @@
 .open-issues {
   margin: 6px;
   margin-left: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
 }
 
@@ -89,9 +89,10 @@
   font-size: 14px;
 }
 
-.issues-github-link {
+.comments-link, .issues-github-link  {
   color: #586069;
 }
+
  /* from github */
 .issues-label-container {
   display: inline-block;
@@ -117,6 +118,16 @@
 .issues-description {
   margin-bottom: 0;
   font-size: 12px;
+}
+
+.issues-body {
+  height: 2.6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.issues-body-text {
+  font-size: .8rem;
 }
 
 .spinner-container {

@@ -3,9 +3,11 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
 const DropdownLabel = (props) => {
+  //multiword search need a plus sign in query string
   const labelNames = [
     ["good+first+issue", "good first issue"],
     ['help+wanted', 'help wanted'],
+    ['easy', 'easy'],
     ['bug', 'bug'],
     ['hacktoberfest', 'hacktoberfest']
   ];

@@ -18,12 +18,19 @@ const ResultsList = (props) => {
             </p>
             <Labels labels={item.labels}/>
           </div>
+          <div className="issues-body">
+            <p className="issues-body-text">{item.body}...</p>
+          </div>
           <p className="issues-description">
-            #{item.number} opened on {item.created_at} by {item.user.login}
+            #{item.number} opened on {item.created_at} by <a href={item.user.html_url}>{item.user.login}</a>
           </p>
         </div>
         <div className="comments">
-          <i className="far fa-comment-alt"></i> {item.comments}
+          <a
+            className="comments-link"
+            href={item.html_url}>
+            <i className="far fa-comment-alt"></i> {item.comments}
+          </a>
         </div>
       </div>
     </Card>

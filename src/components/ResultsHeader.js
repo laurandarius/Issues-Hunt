@@ -7,8 +7,7 @@ const ResultsHeader = (props) => {
   return (
     <Card className="ResultsHeader">
       <div className="open-issues">
-        <i className="fas fa-exclamation-circle"></i>
-        {props.totalCount} Open
+        <i className="fas fa-exclamation-circle"></i> {props.totalCount} Open
       </div>
       <DropdownLabel
         onHoverLabel={props.onHoverLabel}

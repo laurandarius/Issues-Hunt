@@ -37,7 +37,6 @@ class App extends Component {
     const value = this.state.input;
     const language = this.state.language;
     const label = this.state.label;
-    console.log(label);
     axios.get(`https://api.github.com/search/issues?q=${value}+state:open+label:${label}+language:${language}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}`)
      .then(res => {
        console.log(res.data);
