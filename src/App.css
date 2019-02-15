@@ -56,6 +56,10 @@
   color: #586069;
 }
 
+.checkmark-list-wrapper, .checkmark-wrapper, .language-wrapper {
+  display: inline-block;
+}
+
 /* one issues results card */
 .issues-container,
 .exclamation,
@@ -106,7 +110,6 @@
   line-height: 15px;
   padding: .15em 4px;
   margin-left: 8px;
-  display: inline-block;
 }
 
 .issues-title {

@@ -99,9 +99,10 @@ class App extends Component {
             input={this.state.input}
           />
           <ResultsHeader
+            searchedLanguaged={this.state.language}
+            totalCount={this.state.issues.total_count}
             labelSearch={event => this.search(event)}
             languageSearch={event => this.search(event)}
-            totalCount={this.state.issues.total_count}
             onHoverLabel={event => this.onHoverLabel(event)}
             onHoverlanguage={event => this.onHoverlanguage(event)}
           />

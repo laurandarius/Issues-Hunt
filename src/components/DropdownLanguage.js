@@ -1,6 +1,7 @@
 import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import CheckMark from './CheckMark';
 
 const DropdownLanguage = (props) => {
   const languageNames = [
@@ -14,14 +15,25 @@ const DropdownLanguage = (props) => {
     'C++',
   ];
 
-  const DropdownItem = languageNames.map(language =>
+//conditional rendering for checkmark in dropdown list
+  const DropdownItems = languageNames.map(language =>
     <Dropdown.Item
       key={language}
       as="button"
       data-id={language}
       onMouseEnter={props.onHoverlanguage}
       onClick={props.languageSearch}>
-      {language}
+      <div className="checkmark-list-wrapper">
+        <div className="checkmark-wrapper">
+          <CheckMark
+            searchedLanguaged={props.searchedLanguaged}
+            current={language}/>
+        </div>
+        <div className="language-wrapper">
+          {language}
+        </div>
+      </div>
+
     </Dropdown.Item>
   );
 
@@ -30,7 +42,7 @@ const DropdownLanguage = (props) => {
       id="LanguageDropdown"
       title="Language"
       className="DropdownButton">
-      {DropdownItem}
+      {DropdownItems}
     </DropdownButton>
   );
 }

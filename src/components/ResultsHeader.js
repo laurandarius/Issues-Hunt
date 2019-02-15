@@ -13,6 +13,7 @@ const ResultsHeader = (props) => {
         onHoverLabel={props.onHoverLabel}
         labelSearch={props.labelSearch}/>
       <DropdownLanguage
+        searchedLanguaged={props.searchedLanguaged}
         onHoverlanguage={props.onHoverlanguage}
         languageSearch={props.languageSearch}/>
     </Card>
