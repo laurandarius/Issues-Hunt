@@ -14,7 +14,7 @@ const SearchBar = (props) => {
         <FormControl
           value={props.input}
           onChange={props.searchInput}
-          placeholder="Search Issues.."
+          placeholder="Search all issues.."
           aria-label="Search Input"
           aria-describedby="basic-addon2"
         />

@@ -9,6 +9,8 @@ import SearchBar from './components/SearchBar';
 import ResultsHeader from './components/ResultsHeader'
 import ResultsList from './components/ResultsList';
 import Spinner from './components/Spinner';
+import NoResults from './components/NoResults';
+import BlankSlate from './components/BlankSlate';
 
 class App extends Component {
   constructor(props) {
@@ -22,23 +24,6 @@ class App extends Component {
       language:'',
       label:'',
     };
-  }
-
-  // componentDidMount() {
-  //   axios.get(`https://api.github.com/search/issues?q=JavaScript&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}`)
-  //   .then(res => {
-  //     console.log(res.data);
-  //     this.setState({ issues: res.data, returnedAPI: 'yes'});
-  //   },
-  //   err => {
-  //     console.log(err.message);
-  //     this.setState({errorMessage: err.message});
-  //   })
-  // }
-
-  //hold value in searchbar
-  searchInput(event) {
-    this.setState({input: event.target.value});
   }
 
   showSpinner() {
@@ -68,6 +53,11 @@ class App extends Component {
      })
   }
 
+  //hold value in searchbar
+  searchInput(event) {
+    this.setState({input: event.target.value});
+  }
+
   //set the state as soon as mouse hovers dropdown
   //then use state values to make API call
   onHoverLabel(event) {
@@ -86,13 +76,16 @@ class App extends Component {
   }
 
   ResultsListRender() {
-    if (this.state.returnedAPI === 'yes') {
+    if (this.state.returnedAPI === 'yes' && this.state.issues.total_count !== 0) {
       return <ResultsList issuesReturn={this.state.issues}/>;
-    } else if (this.state.spinner ==='show' && this.state.returnedAPI !== 'yes' ){
-      return <Spinner />;
-    } else {
-      return null;
     }
+    if (this.state.spinner ==='show' && this.state.returnedAPI !== 'yes' ) {
+      return <Spinner />;
+    }
+    if (this.state.returnedAPI === 'yes' && this.state.issues.total_count === 0) {
+      return <NoResults />;
+    }
+    return <BlankSlate />;
   }
 
   render() {

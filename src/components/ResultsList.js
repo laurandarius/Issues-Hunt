@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import Labels from './Labels.js'
+import Labels from './Labels.js';
 
 //adjust container at different screen sizes
 const ResultsList = (props) => {
@@ -18,9 +18,13 @@ const ResultsList = (props) => {
             </p>
             <Labels labels={item.labels}/>
           </div>
-          <p className="issues-description">#{item.number} opened on {item.created_at} by {item.user.login}</p>
+          <p className="issues-description">
+            #{item.number} opened on {item.created_at} by {item.user.login}
+          </p>
         </div>
-        <div className="comments"><i className="far fa-comment-alt"></i> {item.comments}</div>
+        <div className="comments">
+          <i className="far fa-comment-alt"></i> {item.comments}
+        </div>
       </div>
     </Card>
   );
