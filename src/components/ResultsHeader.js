@@ -1,47 +1,23 @@
 import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import Card from 'react-bootstrap/Card';
+import DropdownLabel from './DropdownLabel';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 const ResultsHeader = (props) => {
   return (
     <Card className="ResultsHeader">
-      <div className="open-issues"><i className="fas fa-exclamation-circle"></i> {props.totalCount} Open</div>
-      <DropdownButton
-        id="Language"
-        title="Label"
-        className="DropdownButton"
-        >
-        <Dropdown.Item
-          as="button"
-          data-id="good+first+issue"
-          onClick={props.labelSearch}>
-          Good First Issue
-        </Dropdown.Item>
-        <Dropdown.Item
-          as="button"
-          data-id="help+wanted"
-          onClick={props.labelSearch}>
-          Help Wanted
-        </Dropdown.Item>
-        <Dropdown.Item
-          as="button"
-          data-id="bug"
-          onClick={props.labelSearch}>
-          Bug
-        </Dropdown.Item>
-        <Dropdown.Item
-          as="button"
-          data-id="hacktoberfest"
-          onClick={props.labelSearch}>
-          Hacktoberfest
-        </Dropdown.Item>
-      </DropdownButton>
+      <div className="open-issues">
+        <i className="fas fa-exclamation-circle"></i>
+        {props.totalCount} Open
+      </div>
+      <DropdownLabel
+        onHover={props.onHover} 
+        labelSearch={props.labelSearch}/>
       <DropdownButton
         id="Language"
         title="Language"
-        className="DropdownButton"
-        >
+        className="DropdownButton">
         <Dropdown.Item as="button">JavaScript</Dropdown.Item>
         <Dropdown.Item as="button">Ruby</Dropdown.Item>
         <Dropdown.Item as="button">Python</Dropdown.Item>

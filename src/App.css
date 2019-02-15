@@ -51,6 +51,9 @@
 
 .DropdownButton {
   float: right;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  color: #586069;
 }
 
 /* one issues results card */

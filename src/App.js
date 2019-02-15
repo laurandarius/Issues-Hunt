@@ -18,7 +18,9 @@ class App extends Component {
       returnedAPI: 'no',
       spinner: 'hide',
       errorMessage: '',
-      input:''
+      input:'',
+      language:'',
+      label:'',
     };
   }
 
@@ -34,54 +36,54 @@ class App extends Component {
   //   })
   // }
 
+  //hold value in searchbar
   searchInput(event) {
     this.setState({input: event.target.value});
+  }
+
+  showSpinner() {
+    this.setState({
+      returnedAPI:'pending',
+      spinner: 'show'
+    });
+  }
+
+  callAPI() {
+    const value = this.state.input;
+    const language = this.state.language;
+    const label = this.state.label;
+    console.log(label);
+    axios.get(`https://api.github.com/search/issues?q=${value}+state:open+label:${label}+language:${language}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}`)
+     .then(res => {
+       console.log(res.data);
+       this.setState({
+         issues: res.data,
+         returnedAPI: 'yes',
+         spinner: 'hide'
+       });
+     },
+     err => {
+       console.log(err.message);
+       this.setState({errorMessage: err.message});
+     })
   }
 
   //only search for open issues
   searchIssues(event) {
     event.preventDefault();
-    this.setState({
-      returnedAPI:'pending',
-      spinner: 'show'
-    })
-    const value = this.state.input;
-    axios.get(`https://api.github.com/search/issues?q=${value}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}+state:open`)
-     .then(res => {
-       console.log(res.data);
-       this.setState({
-         issues: res.data,
-         returnedAPI: 'yes',
-         spinner: 'hide'
-       });
-     },
-     err => {
-       console.log(err.message);
-       this.setState({errorMessage: err.message});
-     })
+    this.showSpinner();
+    this.callAPI();
+  }
+  //set the state as soon as mouse hovers dropdown
+  //then use state values to make API call
+  onHover(event) {
+    this.setState({label: `"${event.target.dataset.id}"`});
   }
 
   labelSearch(event) {
     event.preventDefault();
-    this.setState({
-      returnedAPI:'pending',
-      spinner: 'show'
-    })
-    const label = `"${event.target.dataset.id}"`;
-    const value = this.state.input;
-    axios.get(`https://api.github.com/search/issues?q=${value}+label:${label}+state:open&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}`)
-     .then(res => {
-       console.log(res.data);
-       this.setState({
-         issues: res.data,
-         returnedAPI: 'yes',
-         spinner: 'hide'
-       });
-     },
-     err => {
-       console.log(err.message);
-       this.setState({errorMessage: err.message});
-     })
+    this.showSpinner();
+    this.callAPI();
   }
 
   ResultsListRender() {
@@ -108,6 +110,7 @@ class App extends Component {
           <ResultsHeader
             labelSearch={event => this.labelSearch(event)}
             totalCount={this.state.issues.total_count}
+            onHover={event => this.onHover(event)}
           />
           {this.ResultsListRender()}
         </div>
