@@ -1,9 +1,15 @@
 import React from 'react';
 
-const ClearyQuery = () => {
+const ClearyQuery = (props) => {
+  const { clearSearchbar, input } = props;
+
   return(
-    <div>
-      Clear current search query and filters
+    <div className="clear-query-container">
+      <div
+        className="query-item"
+        onClick={clearSearchbar}>
+        {input} <i className="far fa-times-circle"></i>
+      </div>
     </div>
   );
 }

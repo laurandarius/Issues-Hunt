@@ -15,23 +15,24 @@ const DropdownLanguage = (props) => {
     'C++',
   ];
 
-  const { onHoverlanguage, languageSearch, searchedLanguaged } = props;
+  const { searchBylanguage, languageSearch, searchedLanguaged } = props;
 
 //conditional rendering for checkmark in dropdown list
   const DropdownItems = languageNames.map(language =>
     <Dropdown.Item
       key={language}
-      as="button"
       data-id={language}
-      onMouseEnter={onHoverlanguage}
-      onClick={languageSearch}>
+      onClick={searchBylanguage}>
       <div className="checkmark-list-wrapper">
         <div className="checkmark-wrapper">
           <CheckMarkLanguage
+            passID={language}
             searchedLanguaged={searchedLanguaged}
             currentLanguage={language}/>
         </div>
-        <div className="dropdown-text-wrapper">
+        <div
+          data-id={language}
+          className="dropdown-text-wrapper">
           {language}
         </div>
       </div>

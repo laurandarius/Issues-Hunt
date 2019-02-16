@@ -8,8 +8,8 @@
 }
 
 .SearchBar {
-  width: 70%;
-  margin-bottom: 1rem;
+  width: 60%;
+  margin-bottom: 0.5rem;
 }
 
 .search-button {
@@ -29,6 +29,20 @@
   border-color: #babbbd; /*set the color you want here*/
 }
 
+/* query css */
+.clear-query-container {
+
+}
+
+.query-item {
+  padding: .2rem;
+  background-color: #495057;
+  color: #fff;
+  border-radius: 4px;
+  display: inline-block;
+  cursor: pointer;
+}
+
 /* Header for results */
 .ResultsHeader, .open-issues, .DropdownButton  {
   display: inline-block;
@@ -40,6 +54,7 @@
 
 .ResultsHeader {
   width: 100%;
+  margin-top:.5rem;
   padding: .5rem;
   background-color: #f6f8fa;
   border: 1px solid #e1e4e8;
@@ -155,7 +170,7 @@
 .spinner-container {
   margin: 0 auto;
   margin-top: 1rem;
-  width: 100px;
+  width: 75px;
 }
 
 .black-slate{

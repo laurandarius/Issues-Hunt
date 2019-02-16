@@ -23,7 +23,6 @@ class App extends Component {
       errorMessage: '',
       input:'',
       language:'',
-      setLanguage:'',
       label:'',
       setLabel:''
     };
@@ -47,7 +46,6 @@ class App extends Component {
          issues: res.data,
          returnedAPI: 'yes',
          spinner: 'hide',
-         setLanguage: language,
          setLabel: label
        });
      },
@@ -69,8 +67,25 @@ class App extends Component {
     this.setState({label: `"${event.target.dataset.id}"`});
   }
 
-  onHoverlanguage(event) {
-    this.setState({language: event.target.dataset.id});
+  searchBylanguage(event) {
+    console.log(event.target.dataset.id);
+    this.setState({
+      language: event.target.dataset.id
+    },
+    () => this.searchNormal());
+  }
+
+  clearSearchbar() {
+    this.setState({
+      input: ''
+    },
+    () => this.searchNormal());
+  }
+
+  //event.preventDefault not working in callback
+  searchNormal() {
+    this.showSpinner();
+    this.callAPI();
   }
 
   //only search for open issues
@@ -93,6 +108,15 @@ class App extends Component {
     return <BlankSlate />;
   }
 
+  QueryRender() {
+    if (this.state.input !== '') {
+      return <ClearQuery
+                clearSearchbar={event => this.clearSearchbar(event)}
+                input={this.state.input}/>;
+    }
+    return null;
+  }
+
   render() {
     return (
       <div className="App">
@@ -104,15 +128,14 @@ class App extends Component {
             searchIssues={event => this.search(event)}
             input={this.state.input}
           />
-          <ClearQuery />
+          {this.QueryRender()}
           <ResultsHeader
             searchedLabel={this.state.setLabel}
-            searchedLanguaged={this.state.setLanguage}
+            searchedLanguaged={this.state.language}
             totalCount={this.state.issues.total_count}
             labelSearch={event => this.search(event)}
-            languageSearch={event => this.search(event)}
             onHoverLabel={event => this.onHoverLabel(event)}
-            onHoverlanguage={event => this.onHoverlanguage(event)}
+            searchBylanguage={event => this.searchBylanguage(event)}
           />
           {this.ResultsListRender()}
         </div>
