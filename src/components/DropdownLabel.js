@@ -13,22 +13,24 @@ const DropdownLabel = (props) => {
     ['hacktoberfest', 'hacktoberfest']
   ];
 
-  const { onHoverLabel, labelSearch, searchedLabel } = props;
+  const { searchByLabel, labelSearch, searchedLabel } = props;
 
   const DropdownItem = labelNames.map(label =>
     <Dropdown.Item
       key={label[0]}
       as="button"
       data-id={label[0]}
-      onMouseEnter={onHoverLabel}
-      onClick={labelSearch}>
+      onClick={searchByLabel}>
       <div className="checkmark-list-wrapper">
         <div className="checkmark-wrapper">
           <CheckMarkLabel
+            passID={label[0]}
             searchedLabel={searchedLabel}
             currentLabel={label[0]}/>
         </div>
-        <div className="dropdown-text-wrapper">
+        <div
+          data-id={label[0]}
+          className="dropdown-text-wrapper">
           {label[1]}
         </div>
       </div>

@@ -7,10 +7,9 @@ const ResultsHeader = (props) => {
   const {
     totalCount,
     searchedLabel,
-    onHoverLabel,
-    labelSearch,
+    searchByLabel,
     searchedLanguaged,
-    searchBylanguage
+    searchByLanguage
   } = props;
 
   return (
@@ -20,11 +19,10 @@ const ResultsHeader = (props) => {
       </div>
       <DropdownLabel
         searchedLabel={searchedLabel}
-        onHoverLabel={onHoverLabel}
-        labelSearch={labelSearch} />
+        searchByLabel={searchByLabel}/>
       <DropdownLanguage
         searchedLanguaged={searchedLanguaged}
-        searchBylanguage={searchBylanguage} />
+        searchByLanguage={searchByLanguage} />
     </Card>
   );
 }

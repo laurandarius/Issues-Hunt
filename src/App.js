@@ -63,23 +63,29 @@ class App extends Component {
   //set the state as soon as mouse hovers dropdown
   //then use state values to make API call
   //quotes are used for search query
-  onHoverLabel(event) {
-    this.setState({label: `"${event.target.dataset.id}"`});
+  searchByLabel(event) {
+    this.setState({
+      label: `"${event.target.dataset.id}"`
+    },
+      () => this.searchNormal()
+    );
   }
 
-  searchBylanguage(event) {
+  searchByLanguage(event) {
     console.log(event.target.dataset.id);
     this.setState({
       language: event.target.dataset.id
     },
-    () => this.searchNormal());
+      () => this.searchNormal()
+    );
   }
 
   clearSearchbar() {
     this.setState({
       input: ''
     },
-    () => this.searchNormal());
+      () => this.searchNormal()
+    );
   }
 
   //event.preventDefault not working in callback
@@ -133,9 +139,8 @@ class App extends Component {
             searchedLabel={this.state.setLabel}
             searchedLanguaged={this.state.language}
             totalCount={this.state.issues.total_count}
-            labelSearch={event => this.search(event)}
-            onHoverLabel={event => this.onHoverLabel(event)}
-            searchBylanguage={event => this.searchBylanguage(event)}
+            searchByLabel={event => this.searchByLabel(event)}
+            searchByLanguage={event => this.searchByLanguage(event)}
           />
           {this.ResultsListRender()}
         </div>
