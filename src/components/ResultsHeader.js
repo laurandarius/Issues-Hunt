@@ -10,6 +10,7 @@ const ResultsHeader = (props) => {
         <i className="fas fa-exclamation-circle"></i> {props.totalCount} Open
       </div>
       <DropdownLabel
+        searchedLabel={props.searchedLabel}
         onHoverLabel={props.onHoverLabel}
         labelSearch={props.labelSearch}/>
       <DropdownLanguage

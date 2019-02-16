@@ -56,8 +56,12 @@
   color: #586069;
 }
 
-.checkmark-list-wrapper, .checkmark-wrapper, .language-wrapper {
+.checkmark-list-wrapper, .checkmark-wrapper, .dropdown-text-wrapper {
   display: inline-block;
+}
+
+.dropdown-text-wrapper {
+  margin-left: .3rem;
 }
 
 /* one issues results card */

@@ -1,7 +1,7 @@
 import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import CheckMark from './CheckMark';
+import CheckMarkLanguage from './CheckMarkLanguage';
 
 const DropdownLanguage = (props) => {
   const languageNames = [
@@ -25,11 +25,11 @@ const DropdownLanguage = (props) => {
       onClick={props.languageSearch}>
       <div className="checkmark-list-wrapper">
         <div className="checkmark-wrapper">
-          <CheckMark
+          <CheckMarkLanguage
             searchedLanguaged={props.searchedLanguaged}
-            current={language}/>
+            currentLanguage={language}/>
         </div>
-        <div className="language-wrapper">
+        <div className="dropdown-text-wrapper">
           {language}
         </div>
       </div>

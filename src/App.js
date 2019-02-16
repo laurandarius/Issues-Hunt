@@ -22,7 +22,9 @@ class App extends Component {
       errorMessage: '',
       input:'',
       language:'',
+      setLanguage:'',
       label:'',
+      setLabel:''
     };
   }
 
@@ -43,7 +45,9 @@ class App extends Component {
        this.setState({
          issues: res.data,
          returnedAPI: 'yes',
-         spinner: 'hide'
+         spinner: 'hide',
+         setLanguage: language,
+         setLabel: label
        });
      },
      err => {
@@ -59,6 +63,7 @@ class App extends Component {
 
   //set the state as soon as mouse hovers dropdown
   //then use state values to make API call
+  //quotes are used for search query
   onHoverLabel(event) {
     this.setState({label: `"${event.target.dataset.id}"`});
   }
@@ -99,7 +104,8 @@ class App extends Component {
             input={this.state.input}
           />
           <ResultsHeader
-            searchedLanguaged={this.state.language}
+            searchedLabel={this.state.setLabel}
+            searchedLanguaged={this.state.setLanguage}
             totalCount={this.state.issues.total_count}
             labelSearch={event => this.search(event)}
             languageSearch={event => this.search(event)}

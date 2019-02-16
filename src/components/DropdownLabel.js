@@ -1,11 +1,12 @@
 import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import CheckMarkLabel from './CheckMarkLabel';
 
 const DropdownLabel = (props) => {
   //multiword search need a plus sign in query string
   const labelNames = [
-    ["good+first+issue", "good first issue"],
+    ['good+first+issue', 'good first issue'],
     ['help+wanted', 'help wanted'],
     ['easy', 'easy'],
     ['bug', 'bug'],
@@ -19,7 +20,16 @@ const DropdownLabel = (props) => {
       data-id={label[0]}
       onMouseEnter={props.onHoverLabel}
       onClick={props.labelSearch}>
-      {label[1]}
+      <div className="checkmark-list-wrapper">
+        <div className="checkmark-wrapper">
+          <CheckMarkLabel
+            searchedLabel={props.searchedLabel}
+            currentLabel={label[0]}/>
+        </div>
+        <div className="dropdown-text-wrapper">
+          {label[1]}
+        </div>
+      </div>
     </Dropdown.Item>
   );
 
