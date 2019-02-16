@@ -4,19 +4,29 @@ import DropdownLabel from './DropdownLabel';
 import DropdownLanguage from './DropdownLanguage';
 
 const ResultsHeader = (props) => {
+  const {
+    totalCount,
+    searchedLabel,
+    onHoverLabel,
+    labelSearch,
+    searchedLanguaged,
+    onHoverlanguage,
+    languageSearch
+  } = props;
+
   return (
     <Card className="ResultsHeader">
       <div className="open-issues">
-        <i className="fas fa-exclamation-circle"></i> {props.totalCount} Open
+        <i className="fas fa-exclamation-circle"></i> {totalCount} Open
       </div>
       <DropdownLabel
-        searchedLabel={props.searchedLabel}
-        onHoverLabel={props.onHoverLabel}
-        labelSearch={props.labelSearch}/>
+        searchedLabel={searchedLabel}
+        onHoverLabel={onHoverLabel}
+        labelSearch={labelSearch}/>
       <DropdownLanguage
-        searchedLanguaged={props.searchedLanguaged}
-        onHoverlanguage={props.onHoverlanguage}
-        languageSearch={props.languageSearch}/>
+        searchedLanguaged={searchedLanguaged}
+        onHoverlanguage={onHoverlanguage}
+        languageSearch={languageSearch}/>
     </Card>
   );
 }

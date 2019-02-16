@@ -6,6 +6,7 @@ import Keys from './config/keys';
 import Header from './components/Header';
 import Description from './components/Description';
 import SearchBar from './components/SearchBar';
+import ClearQuery from './components/ClearQuery';
 import ResultsHeader from './components/ResultsHeader'
 import ResultsList from './components/ResultsList';
 import Spinner from './components/Spinner';
@@ -31,7 +32,7 @@ class App extends Component {
   showSpinner() {
     this.setState({
       returnedAPI:'pending',
-      spinner: 'show'
+      spinner: 'show',
     });
   }
 
@@ -103,6 +104,7 @@ class App extends Component {
             searchIssues={event => this.search(event)}
             input={this.state.input}
           />
+          <ClearQuery />
           <ResultsHeader
             searchedLabel={this.state.setLabel}
             searchedLanguaged={this.state.setLanguage}

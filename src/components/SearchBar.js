@@ -5,15 +5,17 @@ import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 const SearchBar = (props) => {
+  const { searchIssues, input, searchInput } = props;
+
   return (
     <Form
       className="SearchBar"
-      onSubmit={props.searchIssues}
+      onSubmit={searchIssues}
       >
       <InputGroup>
         <FormControl
-          value={props.input}
-          onChange={props.searchInput}
+          value={input}
+          onChange={searchInput}
           placeholder="Search all issues.."
           aria-label="Search Input"
           aria-describedby="basic-addon2"
@@ -21,7 +23,7 @@ const SearchBar = (props) => {
         <InputGroup.Append>
           <Button
             className="search-button"
-            onClick={props.searchIssues}
+            onClick={searchIssues}
             >
             Search
           </Button>
