@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ClearyQuery = (props) => {
-  const { clearSearchbar, input } = props;
+  const { clearSearchbar } = props;
 
   return(
     <div className="clear-query-container">

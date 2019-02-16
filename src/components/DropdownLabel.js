@@ -6,14 +6,14 @@ import CheckMarkLabel from './CheckMarkLabel';
 const DropdownLabel = (props) => {
   //multiword search need a plus sign in query string
   const labelNames = [
-    ['good+first+issue', 'good first issue'],
-    ['help+wanted', 'help wanted'],
-    ['easy', 'easy'],
-    ['bug', 'bug'],
-    ['hacktoberfest', 'hacktoberfest']
+    ['good+first+issue', 'Good First Issue'],
+    ['help+wanted', 'Help Wanted'],
+    ['easy', 'Easy'],
+    ['bug', 'Bug'],
+    ['hacktoberfest', 'Hacktoberfest']
   ];
 
-  const { searchByLabel, labelSearch, searchedLabel } = props;
+  const { searchByLabel, searchedLabel } = props;
 
   const DropdownItem = labelNames.map(label =>
     <Dropdown.Item

@@ -36,7 +36,6 @@ const DropdownLanguage = (props) => {
           {language}
         </div>
       </div>
-
     </Dropdown.Item>
   );
 

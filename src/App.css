@@ -29,6 +29,56 @@
   border-color: #babbbd; /*set the color you want here*/
 }
 
+.btn-primary {
+  border-radius: 1px solid rgba(27,31,35,.2);
+}
+
+.btn {
+    transition: color .10s ease-in-out,
+    background-color .10s ease-in-out,
+    border-color .10s ease-in-out,
+    box-shadow .10s ease-in-out;
+}
+
+/* override default dropdown CSS */
+.DropdownButton {
+  float: right;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  color: #586069;
+}
+
+.dropdown-toggle {
+  color: #444444;
+  background: #F3F3F3;
+  border: 1px #DADADA solid;
+  padding: 5px 10px;
+  border-radius: 2px;
+  font-weight: bold;
+  font-size: 14px;
+  outline: none;
+}
+
+.primary.dropdown-toggle {
+  color: #fff;
+  background-color: #0062cc;
+  border-color: #005cbf;
+}
+
+.dropdown-menu {
+  min-width: 8rem;
+}
+
+.dropdown-item {
+  padding: .25rem .5rem;
+  font-size: 14px;
+}
+
+.dropdown-item:hover {
+  color: #fff;
+  background-color: #0062cc;
+}
+
 /* query css */
 .clear-query-container {
 
@@ -68,19 +118,8 @@
   font-size: 16px;
 }
 
-.DropdownButton {
-  float: right;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  color: #586069;
-}
-
 .checkmark-list-wrapper, .checkmark-wrapper, .dropdown-text-wrapper {
   display: inline-block;
-}
-
-.dropdown-text-wrapper {
-  margin-left: .3rem;
 }
 
 /* one issues results card */
