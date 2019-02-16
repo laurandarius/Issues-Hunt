@@ -8,7 +8,7 @@ const ClearyQuery = (props) => {
       <div
         className="query-item"
         onClick={clearSearchbar}>
-        {input} <i className="far fa-times-circle"></i>
+        Clear search query and filters <i className="far fa-times-circle"></i>
       </div>
     </div>
   );

@@ -24,7 +24,6 @@ class App extends Component {
       input:'',
       language:'',
       label:'',
-      setLabel:''
     };
   }
 
@@ -46,7 +45,6 @@ class App extends Component {
          issues: res.data,
          returnedAPI: 'yes',
          spinner: 'hide',
-         setLabel: label
        });
      },
      err => {
@@ -82,9 +80,12 @@ class App extends Component {
 
   clearSearchbar() {
     this.setState({
-      input: ''
+      issues: '',
+      input: '',
+      language: '',
+      label: '',
     },
-      () => this.searchNormal()
+      () => this.ResultsListRender()
     );
   }
 
@@ -102,7 +103,7 @@ class App extends Component {
   }
 
   ResultsListRender() {
-    if (this.state.returnedAPI === 'yes' && this.state.issues.total_count !== 0) {
+    if (this.state.returnedAPI === 'yes' && this.state.issues !== '') {
       return <ResultsList issuesReturn={this.state.issues}/>;
     }
     if (this.state.spinner ==='show' && this.state.returnedAPI !== 'yes' ) {
@@ -110,15 +111,15 @@ class App extends Component {
     }
     if (this.state.returnedAPI === 'yes' && this.state.issues.total_count === 0) {
       return <NoResults />;
+    } if (this.state.issues === '') {
+      return <BlankSlate />;
     }
     return <BlankSlate />;
   }
 
   QueryRender() {
-    if (this.state.input !== '') {
-      return <ClearQuery
-                clearSearchbar={event => this.clearSearchbar(event)}
-                input={this.state.input}/>;
+    if (this.state.input !== '' || this.state.language !== '' || this.state.label !== '') {
+      return <ClearQuery clearSearchbar={event => this.clearSearchbar(event)} />;
     }
     return null;
   }
