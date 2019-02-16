@@ -3,10 +3,9 @@ import React from 'react';
 const Description = () => {
   return (
     <div className="description">
-      <h5>Label Issues for new contributors</h5>
       <p>
-        GitHub will help potential first-time contributors discover issues
-        labeled with Help Wanted or good first issue
+        Issues Hunt will help potential first-time contributors discover issues.
+        Try searching for issues labeled with <span className="issue-label help-wanted">help wanted</span> or <span className="issue-label good-first-issue">good first issue</span>
       </p>
     </div>
   );

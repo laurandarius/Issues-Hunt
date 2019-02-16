@@ -3,7 +3,7 @@
   margin-bottom: 1.8rem;
   border: 1px solid #e1e4e8;
   border-radius: 3px;
-  padding: 1.5rem;
+  padding: 1.8rem;
   text-align: center;
 }
 
@@ -32,6 +32,10 @@
 /* Header for results */
 .ResultsHeader, .open-issues, .DropdownButton  {
   display: inline-block;
+}
+
+.results-list {
+  margin-bottom: 5rem;
 }
 
 .ResultsHeader {
@@ -105,6 +109,7 @@
 .issues-label-container {
   display: inline-block;
 }
+
 .issue-label {
   border-radius: 2px;
   box-shadow: inset 0 -1px 0 rgba(27,31,35,.12);
@@ -114,6 +119,16 @@
   line-height: 15px;
   padding: .15em 4px;
   margin-left: 8px;
+}
+
+.help-wanted {
+  background-color: #fbca04;
+  margin: 0
+}
+
+.good-first-issue {
+  background-color: #7057ff;
+  margin: 0
 }
 
 .issues-title {
@@ -142,6 +157,7 @@
   margin-top: 1rem;
   width: 100px;
 }
+
 .black-slate{
   background-color: #fafbfc;
   border: 1px solid #e1e4e8;

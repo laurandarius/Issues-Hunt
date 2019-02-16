@@ -37,7 +37,7 @@ const ResultsList = (props) => {
   );
 
   return (
-    <div>
+    <div className="results-list">
       {results}
     </div>
   );
