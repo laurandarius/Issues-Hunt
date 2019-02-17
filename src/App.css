@@ -83,6 +83,11 @@
   margin-left: .2rem;
 }
 
+.icon-box {
+  width: 14px;
+  height: 14px;
+}
+
 /* query css */
 .clear-query-container {
 

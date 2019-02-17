@@ -6,7 +6,7 @@ const CheckMarkLanguage = (props) => {
     searchedLanguaged,
     passID,
   } = props;
-  
+
   //return check mark only if state matches current chosen language
   if(currentLanguage === searchedLanguaged) {
     return (
@@ -16,11 +16,11 @@ const CheckMarkLanguage = (props) => {
       </div>
     );
   }
-  //set as white as default, still use icon for even spacing
+  //return empty div as default
   return (
     <div
       data-id={passID}
-      style={{color: 'white'}}><i className="fas fa-check"></i>
+      className="icon-box">
     </div>
   );
 }
