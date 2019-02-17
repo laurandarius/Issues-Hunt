@@ -18,6 +18,7 @@ class App extends Component {
     super(props);
     this.state = {
       issues: '',
+      issuesCount: null,
       returnedAPI: 'no',
       spinner: 'hide',
       errorMessage: '',
@@ -43,6 +44,7 @@ class App extends Component {
        console.log(res.data);
        this.setState({
          issues: res.data,
+         issuesCount: res.data.total_count.toLocaleString(), //returns a language-sensitive represenation of string
          returnedAPI: 'yes',
          spinner: 'hide',
        });
@@ -109,7 +111,8 @@ class App extends Component {
     if (this.state.spinner ==='show' && this.state.returnedAPI !== 'yes' ) {
       return <Spinner />;
     }
-    if (this.state.returnedAPI === 'yes' && this.state.issues.total_count === 0) {
+    if (this.state.issues.total_count === 0) {
+      console.log('test');
       return <NoResults />;
     } if (this.state.issues === '') {
       return <BlankSlate />;
@@ -139,7 +142,7 @@ class App extends Component {
           <ResultsHeader
             searchedLabel={this.state.label}
             searchedLanguaged={this.state.language}
-            totalCount={this.state.issues.total_count}
+            totalCount={this.state.issuesCount}
             searchByLabel={event => this.searchByLabel(event)}
             searchByLanguage={event => this.searchByLanguage(event)}
           />
