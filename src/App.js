@@ -118,7 +118,7 @@ class App extends Component {
   }
 
   QueryRender() {
-    if (this.state.input !== '' || this.state.language !== '' || this.state.label !== '') {
+    if (this.state.input !== '' || this.state.language !== '' || this.state.label !== '' || this.state.issues !== '') {
       return <ClearQuery clearSearchbar={event => this.clearSearchbar(event)} />;
     }
     return null;
@@ -137,7 +137,7 @@ class App extends Component {
           />
           {this.QueryRender()}
           <ResultsHeader
-            searchedLabel={this.state.setLabel}
+            searchedLabel={this.state.label}
             searchedLanguaged={this.state.language}
             totalCount={this.state.issues.total_count}
             searchByLabel={event => this.searchByLabel(event)}

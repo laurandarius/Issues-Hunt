@@ -79,6 +79,10 @@
   background-color: #0062cc;
 }
 
+.dropdown-text-wrapper {
+  margin-left: .2rem;
+}
+
 /* query css */
 .clear-query-container {
 

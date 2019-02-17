@@ -9,7 +9,7 @@ const ResultsHeader = (props) => {
     searchedLabel,
     searchByLabel,
     searchedLanguaged,
-    searchByLanguage
+    searchByLanguage,
   } = props;
 
   return (

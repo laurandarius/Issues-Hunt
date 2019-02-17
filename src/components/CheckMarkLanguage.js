@@ -1,8 +1,12 @@
 import React from 'react';
 
 const CheckMarkLanguage = (props) => {
-  const { currentLanguage, searchedLanguaged, passID } = props;
-
+  const {
+    currentLanguage,
+    searchedLanguaged,
+    passID,
+  } = props;
+  
   //return check mark only if state matches current chosen language
   if(currentLanguage === searchedLanguaged) {
     return (
@@ -16,7 +20,7 @@ const CheckMarkLanguage = (props) => {
   return (
     <div
       data-id={passID}
-      style={{color: "white"}}><i className="fas fa-check"></i>
+      style={{color: 'white'}}><i className="fas fa-check"></i>
     </div>
   );
 }

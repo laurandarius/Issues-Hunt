@@ -2,6 +2,8 @@ import React from 'react';
 
 const CheckMarkLabel = (props) => {
   const { passID, currentLabel, searchedLabel } = props;
+  console.log(`"${currentLabel}"`);
+  console.log(searchedLabel);
   //add quotes to match props incoming from search query
   //return check mark only if state matches current chosen label
   if(`"${currentLabel}"` === searchedLabel) {
@@ -14,6 +16,7 @@ const CheckMarkLabel = (props) => {
   //set as white as default, still use icon for even spacing
   return (
     <div
+      id="fa-check"
       data-id={passID}
       style={{color: "white"}}>
       <i className="fas fa-check"></i>

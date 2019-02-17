@@ -15,7 +15,10 @@ const DropdownLanguage = (props) => {
     'C++',
   ];
 
-  const { searchByLanguage, searchedLanguaged } = props;
+  const {
+    searchByLanguage,
+    searchedLanguaged,
+  } = props;
 
 //conditional rendering for checkmark in dropdown list
   const DropdownItems = languageNames.map(language =>

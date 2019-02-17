@@ -8,6 +8,7 @@ const DropdownLabel = (props) => {
   const labelNames = [
     ['good+first+issue', 'Good First Issue'],
     ['help+wanted', 'Help Wanted'],
+    ['beginner', 'Beginner'],
     ['easy', 'Easy'],
     ['bug', 'Bug'],
     ['hacktoberfest', 'Hacktoberfest']
