@@ -18,7 +18,7 @@ class App extends Component {
     super(props);
     this.state = {
       issues: '',
-      issuesCount: null,
+      issuesCount: "0",
       returnedAPI: 'no',
       spinner: 'hide',
       errorMessage: '',
@@ -83,6 +83,7 @@ class App extends Component {
   clearSearchbar() {
     this.setState({
       issues: '',
+      issuesCount: "0",
       input: '',
       language: '',
       label: '',
@@ -111,8 +112,7 @@ class App extends Component {
     if (this.state.spinner ==='show' && this.state.returnedAPI !== 'yes' ) {
       return <Spinner />;
     }
-    if (this.state.issues.total_count === 0) {
-      console.log('test');
+    if (this.state.issuesCount === "0") {
       return <NoResults />;
     } if (this.state.issues === '') {
       return <BlankSlate />;
