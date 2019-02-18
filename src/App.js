@@ -145,14 +145,16 @@ class App extends Component {
   }
 
   ResultsListRender() {
-    if (this.state.returnedAPI === 'yes' && this.state.issues !== '') {
+    if (this.state.returnedAPI === 'yes' && this.state.issues !== '' && this.state.issuesCount !== "0" ) {
       return <ResultsList issuesReturn={this.state.issues}/>;
     }
     if (this.state.spinner ==='show' && this.state.returnedAPI !== 'yes' ) {
       return <Spinner />;
     }
+    //error handling if no issues returned
     if (this.state.issuesCount === "0") {
       return <NoResults />;
+    //on load no issues in state
     } if (this.state.issues === '') {
       return <NoResults />;
     }
