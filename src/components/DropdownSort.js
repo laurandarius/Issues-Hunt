@@ -1,38 +1,38 @@
 import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import CheckMarkLanguage from './CheckMarkLanguage';
+import CheckMarkSort from './CheckMarkSort';
 //create sort checkmark
 
 const DropdownSort = (props) => {
   const sortOptions = [
-    'Best Match (default)',
-    'Newest',
-    'Oldest'
+  ['', 'Best Match (default)'],
+  ['&sort=created&order=desc','Newest'],
+  ['&sort=created&order=asc', 'Oldest']
   ];
 
   const {
-    searchByLanguage,
-    searchedLanguaged,
+    searchBySort,
+    currentSortOption,
   } = props;
 
 //conditional rendering for checkmark in dropdown list
-  const DropdownItems = sortOptions.map(language =>
+  const DropdownItems = sortOptions.map(option =>
     <Dropdown.Item
-      key={language}
-      data-id={language}
-      onClick={searchByLanguage}>
+      key={option}
+      data-id={option[0]}
+      onClick={searchBySort}>
       <div className="checkmark-list-wrapper">
         <div className="checkmark-wrapper">
-          <CheckMarkLanguage
-            passID={language}
-            searchedLanguaged={searchedLanguaged}
-            currentLanguage={language}/>
+          <CheckMarkSort
+            passID={option[0]}
+            searchedSort={option[0]}
+            currentSortOption={currentSortOption}/>
         </div>
         <div
-          data-id={language}
+          data-id={option[0]}
           className="dropdown-text-wrapper">
-          {language}
+          {option[1]}
         </div>
       </div>
     </Dropdown.Item>

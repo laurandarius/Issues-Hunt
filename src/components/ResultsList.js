@@ -2,8 +2,9 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Labels from './Labels.js';
 
+//convert utc to readable date
 const displayDate = (text) => {
-  let date = new Date('2019-02-03T17:44:55Z').toString();
+  let date = new Date(text).toString();
   let monthDateSlice = date.slice(4,10);
   let yearSlice = date.slice(11,15);
   return `${monthDateSlice}, ${yearSlice}`;

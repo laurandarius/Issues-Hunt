@@ -24,6 +24,7 @@ class App extends Component {
       input:'',
       language:'',
       label:'',
+      sortOption: ''
     };
   }
 
@@ -38,11 +39,12 @@ class App extends Component {
     const value = this.state.input;
     const language = this.state.language;
     const label = this.state.label;
-    axios.get(`https://api.github.com/search/issues?q=${value}+state:open+label:${label}+language:${language}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}`)
+    const sortOption = this.state.sortOption;
+    axios.get(`https://api.github.com/search/issues?q=${value}+state:open+label:${label}+language:${language}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}${sortOption}`)
      .then(res => {
-       console.log(res.data);
-       console.log(res.headers);
-       console.log(res.headers.link);
+       // console.log(res.data);
+       // console.log(res.headers);
+       // console.log(res.headers.link);
        this.setState({
          issues: res.data,
          issuesCount: res.data.total_count.toLocaleString(), //returns a language-sensitive represenation of string
@@ -73,9 +75,17 @@ class App extends Component {
   }
 
   searchByLanguage(event) {
-    console.log(event.target.dataset.id);
     this.setState({
       language: event.target.dataset.id
+    },
+      () => this.searchNormal()
+    );
+  }
+
+  searchBySort(event) {
+    console.log(event.target.dataset.id);
+    this.setState({
+      sortOption: event.target.dataset.id
     },
       () => this.searchNormal()
     );
@@ -141,6 +151,8 @@ class App extends Component {
           />
           {this.QueryRender()}
           <ResultsHeader
+            searchBySort={event => this.searchBySort(event)}
+            currentSortOption={this.state.sortOption}
             searchedLabel={this.state.label}
             searchedLanguaged={this.state.language}
             totalCount={this.state.issuesCount}

@@ -11,6 +11,8 @@ const ResultsHeader = (props) => {
     searchByLabel,
     searchedLanguaged,
     searchByLanguage,
+    searchBySort,
+    currentSortOption
   } = props;
 
   return (
@@ -18,10 +20,12 @@ const ResultsHeader = (props) => {
       <div className="open-issues">
         <i className="fas fa-exclamation-circle"></i> {totalCount} Open
       </div>
-      <DropdownSort />
+      <DropdownSort
+        searchBySort={searchBySort}
+        currentSortOption={currentSortOption}/>
       <DropdownLabel
         searchedLabel={searchedLabel}
-        searchByLabel={searchByLabel}/>
+        searchByLabel={searchByLabel} />
       <DropdownLanguage
         searchedLanguaged={searchedLanguaged}
         searchByLanguage={searchByLanguage} />
