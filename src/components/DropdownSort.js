@@ -2,18 +2,13 @@ import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import CheckMarkLanguage from './CheckMarkLanguage';
+//create sort checkmark
 
-const DropdownLanguage = (props) => {
-  const languageNames = [
-    'JavaScript',
-    'Python',
-    'Java',
-    'HTML',
-    'CSS',
-    'Ruby',
-    'C#',
-    'PHP',
-    'C++',
+const DropdownSort = (props) => {
+  const sortOptions = [
+    'Best Match (default)',
+    'Newest',
+    'Oldest'
   ];
 
   const {
@@ -22,7 +17,7 @@ const DropdownLanguage = (props) => {
   } = props;
 
 //conditional rendering for checkmark in dropdown list
-  const DropdownItems = languageNames.map(language =>
+  const DropdownItems = sortOptions.map(language =>
     <Dropdown.Item
       key={language}
       data-id={language}
@@ -45,12 +40,12 @@ const DropdownLanguage = (props) => {
 
   return(
     <DropdownButton
-      id="LanguageDropdown"
-      title="Language"
+      id="Dropdownsort"
+      title="Sort"
       className="DropdownButton">
       {DropdownItems}
     </DropdownButton>
   );
 }
 
-export default DropdownLanguage;
+export default DropdownSort;

@@ -14,7 +14,7 @@ const ResultsList = (props) => {
     <Card key={item.id}>
       <div className="issues-container">
         <div className="exclamation">
-          <i className="fas fa-exclamation-circle"></i>
+          <i className="fas fa-exclamation-circle fa-lg"></i>
         </div>
         <div className="title-description-container">
           <div className="issues-label-wrapper">

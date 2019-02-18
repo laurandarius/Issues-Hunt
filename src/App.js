@@ -11,7 +11,6 @@ import ResultsHeader from './components/ResultsHeader'
 import ResultsList from './components/ResultsList';
 import Spinner from './components/Spinner';
 import NoResults from './components/NoResults';
-import BlankSlate from './components/BlankSlate';
 
 class App extends Component {
   constructor(props) {
@@ -42,6 +41,8 @@ class App extends Component {
     axios.get(`https://api.github.com/search/issues?q=${value}+state:open+label:${label}+language:${language}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}`)
      .then(res => {
        console.log(res.data);
+       console.log(res.headers);
+       console.log(res.headers.link);
        this.setState({
          issues: res.data,
          issuesCount: res.data.total_count.toLocaleString(), //returns a language-sensitive represenation of string
@@ -115,9 +116,9 @@ class App extends Component {
     if (this.state.issuesCount === "0") {
       return <NoResults />;
     } if (this.state.issues === '') {
-      return <BlankSlate />;
+      return <NoResults />;
     }
-    return <BlankSlate />;
+    return <NoResults/>;
   }
 
   QueryRender() {
