@@ -7,9 +7,27 @@
   text-align: center;
 }
 
+.description-wrapper {
+  margin: 0 auto;
+  width: 32rem;
+}
+
+@media only screen and (max-width: 576px) {
+  .description-wrapper {
+      width: 19rem;
+  }
+}
+
 .SearchBar {
-  width: 60%;
+  width: 45%;
   margin-bottom: 0.5rem;
+}
+
+@media only screen and (max-width: 576px) {
+  .SearchBar {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .search-button {
