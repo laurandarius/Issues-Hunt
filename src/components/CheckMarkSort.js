@@ -8,8 +8,6 @@ const CheckMarkSort = (props) => {
   } = props;
 
   //return check mark only if state matches current chosen language
-  console.log(searchedSort);
-  console.log(currentSortOption);
   if(searchedSort === currentSortOption) {
     return (
       <div

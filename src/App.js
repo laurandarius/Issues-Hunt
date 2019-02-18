@@ -37,14 +37,35 @@ class App extends Component {
 
   callAPI() {
     const value = this.state.input;
-    const language = this.state.language;
-    const label = this.state.label;
-    const sortOption = this.state.sortOption;
-    axios.get(`https://api.github.com/search/issues?q=${value}+state:open+label:${label}+language:${language}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}${sortOption}`)
+    //return empty string for parameter if no label, language, or sortOption is selected
+    //empty parameters dont work well in query string
+    let labelParameter;
+    if (this.state.label === '') {
+      labelParameter = '';
+    } else {
+      labelParameter = `+label:${this.state.label}`;
+    }
+    //set language parameter
+    let languageParameter;
+    if (this.state.language === '') {
+      languageParameter = '';
+    } else {
+      languageParameter = `+language:${this.state.language}`;
+    }
+    //set sort option
+    let sortOption;
+    if(this.state.sortOption === '') {
+      sortOption = '';
+    } else {
+      //parameters already set in DropdownSort.js
+      sortOption = sortOption = this.state.sortOption;
+    }
+
+    axios.get(`https://api.github.com/search/issues?q=${value}+state:open${labelParameter}${languageParameter}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}${sortOption}`)
      .then(res => {
-       // console.log(res.data);
+       console.log(res.data);
        // console.log(res.headers);
-       // console.log(res.headers.link);
+       console.log(res.headers.link);
        this.setState({
          issues: res.data,
          issuesCount: res.data.total_count.toLocaleString(), //returns a language-sensitive represenation of string
@@ -63,8 +84,6 @@ class App extends Component {
     this.setState({input: event.target.value});
   }
 
-  //set the state as soon as mouse hovers dropdown
-  //then use state values to make API call
   //quotes are used for search query
   searchByLabel(event) {
     this.setState({
@@ -83,7 +102,6 @@ class App extends Component {
   }
 
   searchBySort(event) {
-    console.log(event.target.dataset.id);
     this.setState({
       sortOption: event.target.dataset.id
     },
@@ -98,6 +116,7 @@ class App extends Component {
       input: '',
       language: '',
       label: '',
+      sortOption: ''
     },
       () => this.ResultsListRender()
     );
@@ -113,7 +132,16 @@ class App extends Component {
   search(event) {
     event.preventDefault();
     this.showSpinner();
-    this.callAPI();
+    //clear any parameters before making new search
+    this.setState({
+      issues: '',
+      issuesCount: "0",
+      language: '',
+      label: '',
+      sortOption: ''
+    },
+      () => this.callAPI()
+    );
   }
 
   ResultsListRender() {
@@ -165,5 +193,5 @@ class App extends Component {
     );
   }
 }
-
+// https://api.github.com/search/issues?q=${value}+state:open${labelParameter}+language:${language}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}${sortOption}
 export default App;

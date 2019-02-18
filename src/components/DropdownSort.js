@@ -8,7 +8,10 @@ const DropdownSort = (props) => {
   const sortOptions = [
   ['', 'Best Match (default)'],
   ['&sort=created&order=desc','Newest'],
-  ['&sort=created&order=asc', 'Oldest']
+  ['&sort=created&order=asc', 'Oldest'],
+  ['&sort=comments&order=desc', 'Most Comments'],
+  ['&sort=comments&order=asc', 'Least Comments'],
+  ['&sort=Updated&order=desc', 'Recently Updated'],
   ];
 
   const {
