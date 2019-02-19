@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Labels from './Labels.js';
 
@@ -11,11 +11,6 @@ const displayDate = (text) => {
 }
 //adjust container at different screen sizes
 const ResultsList = (props) => {
-  useEffect(() => {
-  // scroll to top when updated
-  window.scrollTo(0, 0)
-});
-
   const results = props.issuesReturn.items.map(item =>
     <Card key={item.id}>
       <div className="issues-container">

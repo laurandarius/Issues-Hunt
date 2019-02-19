@@ -71,25 +71,22 @@ class App extends Component {
 
     axios.get(`https://api.github.com/search/issues?q=${value}+state:open${labelParameter}${languageParameter}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}${sortOption}&per_page=25`)
      .then(res => {
-       console.log(res.data);
-       console.log(res.headers.link);
+       // console.log(res.data);
+       console.log(res.headers);
        let headers;
        let pageLink;
        //set as 0 as default
        let lastPage = 0;
        //only run logic if results are more than 0
-       if (res.data.total_count.toLocaleString() !== '0') {
+       //link isnt sent when there are no results
+       if (res.data.total_count.toLocaleString() !== '0' && res.headers.link === true) {
          headers = res.headers.link.split(';')
          //logic to get pageLink
          pageLink = headers[0].slice(1, headers[0].length - 2);
-         // console.log(pageLink);
          //logic to grab last page number from header and updateState
          lastPage = headers[1].split('=');
-         console.log(lastPage);
          let returnLength = lastPage.length - 1;
-         console.log(returnLength);
          lastPage = lastPage[returnLength].slice(0, lastPage[returnLength].length - 1);
-         console.log(lastPage);
        }
        this.setState({
          issues: res.data,
@@ -115,9 +112,7 @@ class App extends Component {
   searchByLabel(event) {
     //disable buttons when waiting for API
     //when spinner is showing
-    console.log(this.state.spinner);
     if (this.state.spinner === 'show') {
-      console.log('clicked');
       return;
     } else {
       this.setState({
@@ -145,7 +140,6 @@ class App extends Component {
 
   searchBySort(event) {
     if (this.state.spinner === 'show') {
-      console.log('clicked');
       return;
     } else {
       this.setState({
@@ -260,7 +254,7 @@ class App extends Component {
     axios.get(`${this.state.pageLink}${this.state.selectedPage}`)
      .then(res => {
        console.log(res.data);
-       console.log(res.headers.link);
+       console.log(res.headers);
        this.setState({
          issues: res.data,
          returnedAPI: 'yes',
