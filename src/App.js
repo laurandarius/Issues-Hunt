@@ -79,7 +79,8 @@ class App extends Component {
        let lastPage = 0;
        //only run logic if results are more than 0
        //link isnt sent when there are no results
-       if (res.data.total_count.toLocaleString() !== '0' && res.headers.link === true) {
+       if (res.data.total_count.toLocaleString() !== '0' && res.headers.link !== undefined) {
+         console.log(res.headers.link);
          headers = res.headers.link.split(';')
          //logic to get pageLink
          pageLink = headers[0].slice(1, headers[0].length - 2);
