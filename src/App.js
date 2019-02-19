@@ -30,7 +30,7 @@ class App extends Component {
       label:'',
       sortOption: '',
       firstPage: 1,
-      lastPage: 20,
+      lastPage: 15,
       selectedPage: 1
     };
   }
@@ -187,10 +187,13 @@ class App extends Component {
 
   nextButton(event) {
     event.preventDefault();
-    console.log('clicked')
-    if (this.state.selectedPage !== this.state.lastPage){
+    if (this.state.selectedPage < this.state.lastPage){
       this.setState({
         selectedPage: this.state.selectedPage + 1
+      });
+    } else {
+      this.setState({
+        selectedPage: this.state.selectedPage
       });
     }
   }
