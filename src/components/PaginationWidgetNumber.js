@@ -9,23 +9,21 @@ const PaginationWidgetNumber = (props) => {
 
   if (currentPage === selectedPage) {
     return(
-      <a
+      <button
         data-id={currentPage}
         className="selected-page individual-number"
-        onClick={selectPageNumber}
-        href="#">
+        onClick={selectPageNumber}>
         {currentPage}
-      </a>
+      </button>
     );
   } else {
     return(
-      <a
+      <button
         data-id={currentPage}
         className="individual-number"
-        onClick={selectPageNumber}
-        href="#">
+        onClick={selectPageNumber}>
         {currentPage}
-      </a>
+      </button>
     );
   }
 }

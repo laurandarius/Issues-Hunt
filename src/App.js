@@ -29,6 +29,7 @@ class App extends Component {
       language:'',
       label:'',
       sortOption: '',
+      pageLink: '',
       firstPage: 1,
       lastPage: 15,
       selectedPage: 1
@@ -71,13 +72,22 @@ class App extends Component {
     axios.get(`https://api.github.com/search/issues?q=${value}+state:open${labelParameter}${languageParameter}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}${sortOption}`)
      .then(res => {
        console.log(res.data);
-       // console.log(res.headers);
        console.log(res.headers.link);
+
+       let headers = res.headers.link.split(';')
+       //logic to get pageLink
+       let pageLink = headers[0].slice(1, headers[0].length-2);
+       console.log(pageLink);
+       //logic to grab last page number from header and updateState
+       let lastPage = headers[1].split('=');
+       lastPage = lastPage[5].slice(0, lastPage[5].length-1);
        this.setState({
          issues: res.data,
          issuesCount: res.data.total_count.toLocaleString(), //returns a language-sensitive represenation of string
          returnedAPI: 'yes',
          spinner: 'hide',
+         lastPage: parseInt(lastPage),
+         pageLink: pageLink
        });
      },
      err => {
@@ -198,6 +208,23 @@ class App extends Component {
     }
   }
 
+  callApiFromWidget() {
+    axios.get(`${this.state.pageLink}${this.state.selectedPage}`)
+     .then(res => {
+       console.log(res.data);
+       console.log(res.headers.link);
+       this.setState({
+         issues: res.data,
+         returnedAPI: 'yes',
+         spinner: 'hide'
+       });
+     },
+     err => {
+       console.log(err.message);
+       this.setState({errorMessage: err.message});
+     })
+  }
+
   selectPageNumber(event) {
     event.preventDefault();
     //convert string to number
@@ -208,7 +235,10 @@ class App extends Component {
     } else {
       this.setState({
         selectedPage: pageNumber,
-      });
+        spinner: 'show'
+      },
+        () => this.callApiFromWidget()
+      );
     }
   }
 
