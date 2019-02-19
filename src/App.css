@@ -9,7 +9,6 @@
 
 .description-wrapper {
   margin: 0 auto;
-  width: 33rem;
 }
 
 @media only screen and (max-width: 576px) {
@@ -233,12 +232,7 @@
   font-size: .8rem;
 }
 
-.spinner-container {
-  margin: 0 auto;
-  margin-top: 1rem;
-  width: 75px;
-}
-
+/* for error and welcome container */
 .blank-container {
   background-color: #fafbfc;
   border: 1px solid #e1e4e8;
@@ -249,6 +243,11 @@
   height: 22rem;
 }
 
+/* .footer {
+  border-top: 1px solid #e1e4e8;
+  margin-top: 2rem;
+} */
+
 /* error handling */
 .error-handle-wrapper{
   margin-top: 1.5rem;
@@ -256,4 +255,11 @@
 
 .no-results-found {
   margin-top: 1.5rem;
+}
+
+/* Spinner display */
+.spinner-container {
+  margin: 0 auto;
+  margin-top: 1rem;
+  width: 75px;
 }

@@ -9,8 +9,11 @@ import SearchBar from './components/SearchBar';
 import ClearQuery from './components/ClearQuery';
 import ResultsHeader from './components/ResultsHeader'
 import ResultsList from './components/ResultsList';
-import Spinner from './components/Spinner';
+import Welcome from './components/Welcome';
 import NoResults from './components/NoResults';
+import Footer from './components/Footer';
+import Spinner from './components/Spinner';
+
 
 class App extends Component {
   constructor(props) {
@@ -152,13 +155,13 @@ class App extends Component {
       return <Spinner />;
     }
     //error handling if no issues returned
-    if (this.state.issuesCount === "0") {
+    if (this.state.issuesCount === "0" && this.state.issues !== '') {
       return <NoResults />;
     //on load no issues in state
     } if (this.state.issues === '') {
-      return <NoResults />;
+      return <Welcome />;
     }
-    return <NoResults/>;
+    return <Welcome/>;
   }
 
   QueryRender() {
@@ -190,6 +193,7 @@ class App extends Component {
             searchByLanguage={event => this.searchByLanguage(event)}
           />
           {this.ResultsListRender()}
+          <Footer />
         </div>
       </div>
     );
