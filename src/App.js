@@ -69,18 +69,28 @@ class App extends Component {
       sortOption = sortOption = this.state.sortOption;
     }
 
-    axios.get(`https://api.github.com/search/issues?q=${value}+state:open${labelParameter}${languageParameter}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}${sortOption}`)
+    axios.get(`https://api.github.com/search/issues?q=${value}+state:open${labelParameter}${languageParameter}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}${sortOption}&per_page=25`)
      .then(res => {
        console.log(res.data);
        console.log(res.headers.link);
-
-       let headers = res.headers.link.split(';')
-       //logic to get pageLink
-       let pageLink = headers[0].slice(1, headers[0].length-2);
-       console.log(pageLink);
-       //logic to grab last page number from header and updateState
-       let lastPage = headers[1].split('=');
-       lastPage = lastPage[5].slice(0, lastPage[5].length-1);
+       let headers;
+       let pageLink;
+       //set as 0 as default
+       let lastPage = 0;
+       //only run logic if results are more than 0
+       if (res.data.total_count.toLocaleString() !== '0') {
+         headers = res.headers.link.split(';')
+         //logic to get pageLink
+         pageLink = headers[0].slice(1, headers[0].length - 2);
+         // console.log(pageLink);
+         //logic to grab last page number from header and updateState
+         lastPage = headers[1].split('=');
+         console.log(lastPage);
+         let returnLength = lastPage.length - 1;
+         console.log(returnLength);
+         lastPage = lastPage[returnLength].slice(0, lastPage[returnLength].length - 1);
+         console.log(lastPage);
+       }
        this.setState({
          issues: res.data,
          issuesCount: res.data.total_count.toLocaleString(), //returns a language-sensitive represenation of string
@@ -103,27 +113,48 @@ class App extends Component {
 
   //quotes are used for search query
   searchByLabel(event) {
-    this.setState({
-      label: `"${event.target.dataset.id}"`
-    },
-      () => this.searchNormal()
-    );
+    //disable buttons when waiting for API
+    //when spinner is showing
+    console.log(this.state.spinner);
+    if (this.state.spinner === 'show') {
+      console.log('clicked');
+      return;
+    } else {
+      this.setState({
+        label: `"${event.target.dataset.id}"`,
+        selectedPage: 1
+      },
+        () => this.searchNormal()
+      );
+    }
   }
 
   searchByLanguage(event) {
-    this.setState({
-      language: event.target.dataset.id
-    },
-      () => this.searchNormal()
-    );
+    if (this.state.spinner === 'show') {
+      console.log('clicked');
+      return;
+    } else {
+      this.setState({
+        language: event.target.dataset.id,
+        selectedPage: 1
+      },
+        () => this.searchNormal()
+      );
+    }
   }
 
   searchBySort(event) {
-    this.setState({
-      sortOption: event.target.dataset.id
-    },
-      () => this.searchNormal()
-    );
+    if (this.state.spinner === 'show') {
+      console.log('clicked');
+      return;
+    } else {
+      this.setState({
+        sortOption: event.target.dataset.id,
+        selectedPage: 1
+      },
+        () => this.searchNormal()
+      );
+    }
   }
 
   clearSearchbar() {
@@ -163,7 +194,18 @@ class App extends Component {
 
   ResultsListRender() {
     if (this.state.returnedAPI === 'yes' && this.state.issues !== '' && this.state.issuesCount !== "0" ) {
-      return <ResultsList issuesReturn={this.state.issues}/>;
+      return (
+        <div>
+          <ResultsList issuesReturn={this.state.issues} />
+          <PaginationWidget
+            selectPageNumber={event => this.selectPageNumber(event)}
+            nextButton={event => this.nextButton(event)}
+            previousButton={event => this.previousButton(event)}
+            firstPage={this.state.firstPage}
+            lastPage={this.state.lastPage}
+            selectedPage={this.state.selectedPage} />
+        </div>
+      );
     }
     if (this.state.spinner ==='show' && this.state.returnedAPI !== 'yes' ) {
       return <Spinner />;
@@ -188,19 +230,25 @@ class App extends Component {
   //Widget previous and next buttons
   previousButton(event) {
     event.preventDefault();
-    if (this.state.selectedPage !== 1){
+    if (this.state.selectedPage !== 1) {
+      this.showSpinner();
       this.setState({
         selectedPage: this.state.selectedPage - 1
-      });
+      },
+        () => this.callApiFromWidget()
+      );
     }
   }
 
   nextButton(event) {
     event.preventDefault();
-    if (this.state.selectedPage < this.state.lastPage){
+    if (this.state.selectedPage < this.state.lastPage) {
+      this.showSpinner();
       this.setState({
         selectedPage: this.state.selectedPage + 1
-      });
+      },
+        () => this.callApiFromWidget()
+      );
     } else {
       this.setState({
         selectedPage: this.state.selectedPage
@@ -233,9 +281,9 @@ class App extends Component {
     if(isNaN(pageNumber)) {
       return;
     } else {
+      this.showSpinner();
       this.setState({
         selectedPage: pageNumber,
-        spinner: 'show'
       },
         () => this.callApiFromWidget()
       );
@@ -264,13 +312,6 @@ class App extends Component {
             searchByLanguage={event => this.searchByLanguage(event)}
           />
           {this.ResultsListRender()}
-          <PaginationWidget
-            selectPageNumber={event => this.selectPageNumber(event)}
-            nextButton={event => this.nextButton(event)}
-            previousButton={event => this.previousButton(event)}
-            firstPage={this.state.firstPage}
-            lastPage={this.state.lastPage}
-            selectedPage={this.state.selectedPage}/>
           <Footer />
         </div>
       </div>
