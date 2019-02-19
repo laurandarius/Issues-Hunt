@@ -198,6 +198,20 @@ class App extends Component {
     }
   }
 
+  selectPageNumber(event) {
+    event.preventDefault();
+    //convert string to number
+    let pageNumber =parseInt(event.target.dataset.id);
+    //only update state if it is a number
+    if(isNaN(pageNumber)) {
+      return;
+    } else {
+      this.setState({
+        selectedPage: pageNumber,
+      });
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -221,6 +235,7 @@ class App extends Component {
           />
           {this.ResultsListRender()}
           <PaginationWidget
+            selectPageNumber={event => this.selectPageNumber(event)}
             nextButton={event => this.nextButton(event)}
             previousButton={event => this.previousButton(event)}
             firstPage={this.state.firstPage}
@@ -232,5 +247,5 @@ class App extends Component {
     );
   }
 }
-// https://api.github.com/search/issues?q=${value}+state:open${labelParameter}+language:${language}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}${sortOption}
+
 export default App;

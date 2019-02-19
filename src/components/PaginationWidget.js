@@ -7,7 +7,8 @@ const PaginationWidget = (props) => {
     lastPage,
     selectedPage,
     nextButton,
-    previousButton
+    previousButton,
+    selectPageNumber
   } = props
 
   //conditional rendering for pages widget
@@ -27,7 +28,7 @@ const PaginationWidget = (props) => {
   if (selectedPage > 5 && selectedPage <= lastPage - 5) {
     pages = [
       firstPage,
-      '...',
+      '..',
       selectedPage-1,
       selectedPage,
       selectedPage +1,
@@ -52,7 +53,8 @@ const PaginationWidget = (props) => {
     <PaginationWidgetNumber
       key={page}
       currentPage={page}
-      selectedPage={selectedPage}/>
+      selectedPage={selectedPage}
+      selectPageNumber={selectPageNumber} />
   );
 
   return (
