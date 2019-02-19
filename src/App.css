@@ -243,6 +243,43 @@
   height: 22rem;
 }
 
+/* PaginationWidget */
+.individual-number, .previous-button, .next-button {
+  display: inline-block;
+  border: 1px solid #e1e4e8;
+  text-align: center;
+  padding: .5rem;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.individual-number:link, .previous-button:link, .next-button:link {
+  text-decoration: none;
+}
+
+.individual-number {
+  width: 3rem;
+}
+
+.next-button {
+  width: 4rem;
+}
+
+.previous-button {
+  width: 5.5rem;
+}
+
+.widget-container {
+  display: block;
+  margin: 2.5rem auto;
+  text-align: center;
+}
+
+.selected-page {
+  color: #fff;
+  background-color: #0062cc;
+  border-color: #005cbf;
+}
 /* .footer {
   border-top: 1px solid #e1e4e8;
   margin-top: 2rem;

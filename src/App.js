@@ -11,6 +11,7 @@ import ResultsHeader from './components/ResultsHeader'
 import ResultsList from './components/ResultsList';
 import Welcome from './components/Welcome';
 import NoResults from './components/NoResults';
+import PaginationWidget from './components/PaginationWidget';
 import Footer from './components/Footer';
 import Spinner from './components/Spinner';
 
@@ -27,7 +28,10 @@ class App extends Component {
       input:'',
       language:'',
       label:'',
-      sortOption: ''
+      sortOption: '',
+      firstPage: 1,
+      lastPage: 20,
+      selectedPage: 1
     };
   }
 
@@ -171,6 +175,26 @@ class App extends Component {
     return null;
   }
 
+  //Widget previous and next buttons
+  previousButton(event) {
+    event.preventDefault();
+    if (this.state.selectedPage !== 1){
+      this.setState({
+        selectedPage: this.state.selectedPage - 1
+      });
+    }
+  }
+
+  nextButton(event) {
+    event.preventDefault();
+    console.log('clicked')
+    if (this.state.selectedPage !== this.state.lastPage){
+      this.setState({
+        selectedPage: this.state.selectedPage + 1
+      });
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -193,6 +217,12 @@ class App extends Component {
             searchByLanguage={event => this.searchByLanguage(event)}
           />
           {this.ResultsListRender()}
+          <PaginationWidget
+            nextButton={event => this.nextButton(event)}
+            previousButton={event => this.previousButton(event)}
+            firstPage={this.state.firstPage}
+            lastPage={this.state.lastPage}
+            selectedPage={this.state.selectedPage}/>
           <Footer />
         </div>
       </div>
