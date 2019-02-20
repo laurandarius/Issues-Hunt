@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Loader from 'react-loader-spinner'
 
 const Spinner = () => {
+  useEffect(() => {
+  // scroll up each time spinner is showing before results are rendered
+  window.scrollTo(0, 0)
+  });
+
   return (
     <div className="blank-container">
       <div className="spinner-container">
