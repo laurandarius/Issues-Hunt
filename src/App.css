@@ -1,14 +1,47 @@
 .header-block {
-  height: 8rem;
+  height: 9rem;
   text-align: center;
   color: white;
   background: #343a40;
-  padding: 2rem;
   margin-bottom: 1.8rem;
+  position: relative;
+}
+
+.header-title {
+  line-height: 9rem;
+}
+
+.website-link {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #0062cc;
+}
+
+.website-link:hover {
+  color: #0062cc;
+  text-decoration: none;
 }
 
 .header-description {
   margin-top: 1.5rem;
+}
+
+.header-icon {
+  margin-left: .4rem;
+  display: inline-block;
+  float: right;
+  color: white;
+}
+
+.header-icon:hover {
+  cursor: pointer;
+  color: #0062cc;
+}
+
+.contacts-wrapper {
+ position: absolute;
+ top: 15px;
+ right: 15px;
 }
 
 .description {
@@ -305,10 +338,13 @@
 }
 
 .footer {
-  border-top: 1px solid #e1e4e8;
-  margin-top: 4rem;
-  height: 6rem;
-  background-color: #343a40;
+  border-top: 1px solid #cacdd0;
+  margin-top: 2rem;
+  height: 8rem;
+  padding-top: 1.5rem;
+  color: #797b7c;
+  text-align: center;
+  font-size: 14px;
 }
 
 /* error handling */

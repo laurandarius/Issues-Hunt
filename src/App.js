@@ -307,6 +307,7 @@ class App extends Component {
             searchByLanguage={event => this.searchByLanguage(event)}
           />
           {this.ResultsListRender()}
+          <Footer />
         </div>
       </div>
     );

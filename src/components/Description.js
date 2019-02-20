@@ -5,7 +5,7 @@ const Description = () => {
     <div className="description">
       <div className="description-wrapper">
         <p>
-          Issues are used to keep track of tasks, bugs, and feature enhancments for your projects.
+          Search over 22 million open issues across GitHub.
         </p>
       </div>
     </div>
