@@ -1,3 +1,16 @@
+.header-block {
+  height: 8rem;
+  text-align: center;
+  color: white;
+  background: #343a40;
+  padding: 2rem;
+  margin-bottom: 1.8rem;
+}
+
+.header-description {
+  margin-top: 1.5rem;
+}
+
 .description {
   margin-top: 2rem;
   margin-bottom: 1.8rem;
@@ -251,14 +264,16 @@
   padding: .5rem;
   cursor: pointer;
   font-size: 12px;
-}
-
-.individual-number:link, .previous-button:link, .next-button:link {
-  text-decoration: none;
+  background: #F3F3F3;
 }
 
 .individual-number {
   width: 3rem;
+}
+
+.individual-number:hover {
+  color: #fff;
+  background-color: #0062cc;
 }
 
 .next-button {
@@ -267,6 +282,10 @@
 
 .previous-button {
   width: 5.5rem;
+}
+
+.next-button:hover, .previous-button:hover {
+  background-color: #d7dadd;
 }
 
 .widget-container {
@@ -285,10 +304,12 @@
   color: #fff;
 }
 
-/* .footer {
+.footer {
   border-top: 1px solid #e1e4e8;
-  margin-top: 2rem;
-} */
+  margin-top: 4rem;
+  height: 6rem;
+  background-color: #343a40;
+}
 
 /* error handling */
 .error-handle-wrapper{
