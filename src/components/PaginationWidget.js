@@ -21,7 +21,6 @@ const PaginationWidget = (props) => {
       i++;
     }
   }
-  console.log(pages);
   //first configeration
   if (1 <= selectedPage <= 5 && lastPage > 5) {
     pages = [
@@ -34,9 +33,8 @@ const PaginationWidget = (props) => {
       lastPage
     ];
   }
-  console.log(pages);
   //middle configeration
-  if (selectedPage > 5 && selectedPage < lastPage - 5) {
+  if (selectedPage > 5 && selectedPage <= lastPage - 5) {
     pages = [
       firstPage,
       '..',
@@ -47,7 +45,6 @@ const PaginationWidget = (props) => {
       lastPage
     ];
   }
-  console.log(pages);
   //last configeration
   if (selectedPage >= lastPage - 4 && selectedPage <= lastPage && lastPage > 5) {
     pages = [
@@ -60,7 +57,6 @@ const PaginationWidget = (props) => {
       lastPage
     ];
   }
-  console.log(pages);
   const widget = pages.map(page =>
     <PaginationWidgetNumber
       key={page}
