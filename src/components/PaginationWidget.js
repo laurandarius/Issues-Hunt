@@ -12,8 +12,17 @@ const PaginationWidget = (props) => {
   } = props
 
   //conditional rendering for pages widget
-  let pages;
-  if (1 <= selectedPage <= 5) {
+  let pages = [];
+  // if there are 4 or less pages no create array with no ...
+  if (lastPage < 5) {
+    let i = 1;
+    while (i <= lastPage) {
+      pages.push(i);
+      i++;
+    }
+  }
+  //first configeration
+  if (1 <= selectedPage <= 5 && lastPage >= 5) {
     pages = [
       firstPage,
       firstPage +1,
@@ -24,7 +33,7 @@ const PaginationWidget = (props) => {
       lastPage
     ];
   }
-
+  //middle configeration
   if (selectedPage > 5 && selectedPage <= lastPage - 5) {
     pages = [
       firstPage,
@@ -36,8 +45,8 @@ const PaginationWidget = (props) => {
       lastPage
     ];
   }
-
-  if (selectedPage >= lastPage - 4 && selectedPage <= lastPage) {
+  //last configeration
+  if (selectedPage >= lastPage - 4 && selectedPage <= lastPage && lastPage >= 5) {
     pages = [
       firstPage,
       '...',
