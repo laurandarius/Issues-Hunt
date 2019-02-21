@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Labels from './Labels.js';
+import './css/ResultsList.css';
 
 //convert utc to readable date
 const displayDate = (text) => {

@@ -1,0 +1,47 @@
+/* PaginationWidget */
+.individual-number, .previous-button, .next-button {
+  display: inline-block;
+  border: 1px solid #e1e4e8;
+  text-align: center;
+  padding: .5rem;
+  cursor: pointer;
+  font-size: 12px;
+  background: #F3F3F3;
+}
+
+.individual-number {
+  width: 3rem;
+}
+
+.individual-number:hover {
+  color: #fff;
+  background-color: #0062cc;
+}
+
+.next-button {
+  width: 4rem;
+}
+
+.previous-button {
+  width: 5.5rem;
+}
+
+.next-button:hover, .previous-button:hover {
+  background-color: #d7dadd;
+}
+
+.widget-container {
+  display: block;
+  margin: 2.5rem auto;
+  text-align: center;
+}
+
+.selected-page {
+  color: #fff;
+  background-color: #0062cc;
+  border-color: #005cbf;
+}
+
+.selected-page:hover {
+  color: #fff;
+}

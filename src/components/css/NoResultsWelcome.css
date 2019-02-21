@@ -1,0 +1,39 @@
+/* for error and welcome container */
+.blank-container {
+  background-color: #fafbfc;
+  border: 1px solid #e1e4e8;
+  border-radius: 3px;
+  box-shadow: inset 0 0 10px rgba(27,31,35,.05);
+  padding: 4rem;
+  text-align: center;
+  height: 22rem;
+}
+
+.issue-label {
+  border-radius: 2px;
+  box-shadow: inset 0 -1px 0 rgba(27,31,35,.12);
+  font-size: 12px;
+  font-weight: 600;
+  height: 20px;
+  line-height: 15px;
+  padding: .15em 4px;
+  margin-left: 8px;
+}
+
+.help-wanted {
+  background-color: #fbca04;
+  margin: 0
+}
+
+.good-first-issue {
+  background-color: #7057ff;
+  margin: 0
+}
+/* error handling */
+.error-handle-wrapper{
+  margin-top: 1.5rem;
+}
+
+.no-results-found {
+  margin-top: 1.5rem;
+}

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import Loader from 'react-loader-spinner'
+import Loader from 'react-loader-spinner';
+import './css/Spinner.css';
 
 const Spinner = () => {
   useEffect(() => {

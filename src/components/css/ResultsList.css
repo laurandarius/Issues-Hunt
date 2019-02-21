@@ -1,0 +1,73 @@
+/* one issues results card */
+.issues-container,
+.exclamation,
+.comment,
+.title-description-container,
+.issues-label-wrapper,
+.issues-title,
+.issue-label {
+  display: inline-block;
+}
+
+.issues-container {
+  padding: .5rem;
+}
+
+.exclamation {
+  width: 2.8rem;
+  height: 100%;
+  padding-left: 16px;
+  float: left;
+  color: #28a745;
+}
+
+.title-description-container {
+  width: 85%;
+}
+
+.comments {
+  width: 4rem;
+  float: right;
+  font-size: 14px;
+}
+
+.comments-link, .issues-github-link  {
+  color: #586069;
+}
+
+ /* from github */
+.issues-label-container {
+  display: inline-block;
+}
+
+.issue-label {
+  border-radius: 2px;
+  box-shadow: inset 0 -1px 0 rgba(27,31,35,.12);
+  font-size: 12px;
+  font-weight: 600;
+  height: 20px;
+  line-height: 15px;
+  padding: .15em 4px;
+  margin-left: 8px;
+}
+
+.issues-title {
+  margin-bottom: 0.3rem;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.issues-description {
+  margin-bottom: 0;
+  font-size: 12px;
+}
+
+.issues-body {
+  height: 2.6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.issues-body-text {
+  font-size: .8rem;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import PaginationWidgetNumber from './PaginationWidgetNumber';
+import './css/PaginationWidget.css';
 
 const PaginationWidget = (props) => {
   const {

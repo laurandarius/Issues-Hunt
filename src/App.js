@@ -15,7 +15,6 @@ import PaginationWidget from './components/PaginationWidget';
 import Footer from './components/Footer';
 import Spinner from './components/Spinner';
 
-
 class App extends Component {
   constructor(props) {
     super(props);

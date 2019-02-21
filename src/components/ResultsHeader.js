@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import DropdownLabel from './DropdownLabel';
 import DropdownLanguage from './DropdownLanguage';
 import DropdownSort from './DropdownSort';
+import './css/ResultsHeader.css';
 
 const ResultsHeader = (props) => {
   const {

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './css/NoResultsWelcome.css';
 const Welcome = () => {
   return(
     <div className="blank-container">

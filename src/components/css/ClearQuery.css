@@ -1,0 +1,9 @@
+/* query css */
+.query-item {
+  padding: .2rem;
+  background-color: #495057;
+  color: #fff;
+  border-radius: 4px;
+  display: inline-block;
+  cursor: pointer;
+}

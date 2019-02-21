@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/NoResultsWelcome.css';
 
 const NoResults = () => {
   return(

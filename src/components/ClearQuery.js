@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/ClearQuery.css';
 
 const ClearyQuery = (props) => {
   const { clearSearchbar } = props;
