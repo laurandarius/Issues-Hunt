@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import Keys from './config/keys';
-
+//Import Components
 import Header from './components/Header';
 import Description from './components/Description';
 import SearchBar from './components/SearchBar';
@@ -70,8 +70,8 @@ class App extends Component {
 
     axios.get(`https://api.github.com/search/issues?q=${value}+state:open${labelParameter}${languageParameter}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}${sortOption}&per_page=25`)
      .then(res => {
-       // console.log(res.data);
-       console.log(res.headers);
+       console.log(res.data);
+       // console.log(res.headers);
        let headers;
        let pageLink;
        //set as 0 as default
@@ -79,7 +79,7 @@ class App extends Component {
        //only run logic if results are more than 0
        //link isnt sent when there are no results
        if (res.data.total_count.toLocaleString() !== '0' && res.headers.link !== undefined) {
-         console.log(res.headers.link);
+         // console.log(res.headers.link);
          headers = res.headers.link.split(';')
          //logic to get pageLink
          pageLink = headers[0].slice(1, headers[0].length - 2);

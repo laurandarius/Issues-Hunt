@@ -1,11 +1,13 @@
 /* one issues results card */
-.issues-container,
 .exclamation,
 .comment,
 .title-description-container,
 .issues-label-wrapper,
 .issues-title,
-.issue-label {
+.issue-label,
+.issues-description,
+.description-avatar-wrapper,
+.user-avatar {
   display: inline-block;
 }
 
@@ -57,11 +59,6 @@
   font-weight: 600;
 }
 
-.issues-description {
-  margin-bottom: 0;
-  font-size: 12px;
-}
-
 .issues-body {
   height: 2.6rem;
   overflow: hidden;
@@ -70,4 +67,19 @@
 
 .issues-body-text {
   font-size: .8rem;
+}
+
+.description-avatar-wrapper{
+
+}
+
+.issues-description {
+  margin-bottom: 0;
+  font-size: 12px;
+}
+
+.user-avatar {
+  width: 18px;
+  margin-left: .5rem;
+  border-radius: 1px;
 }

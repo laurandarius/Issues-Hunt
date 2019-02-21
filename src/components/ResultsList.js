@@ -29,9 +29,17 @@ const ResultsList = (props) => {
           <div className="issues-body">
             <p className="issues-body-text">{item.body}...</p>
           </div>
-          <p className="issues-description">
-            #{item.number} opened on {displayDate(item.created_at)} by <a href={item.user.html_url}>{item.user.login}</a>
-          </p>
+          <div className="description-avatar-wrapper">
+            <p className="issues-description">
+              #{item.number} opened on {displayDate(item.created_at)} by <a href={item.user.html_url} alt={item.user.login}>{item.user.login}</a>
+            </p>
+            <a href={item.user.html_url} alt={item.user.login}>
+              <img
+                className="user-avatar"
+                src={item.user.avatar_url}
+                alt={item.user.login} />
+            </a>
+          </div>
         </div>
         <div className="comments">
           <a
