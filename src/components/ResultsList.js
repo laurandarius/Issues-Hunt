@@ -24,7 +24,7 @@ const ResultsList = (props) => {
               <span className="issues-github-link"></span>
               <a href={item.html_url}>{item.title}</a>
             </p>
-            <Labels labels={item.labels}/>
+            <Labels labels={item.labels} />
           </div>
           <div className="issues-body">
             <p className="issues-body-text">{item.body}...</p>

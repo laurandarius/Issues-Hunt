@@ -23,7 +23,7 @@ const ResultsHeader = (props) => {
       </div>
       <DropdownSort
         searchBySort={searchBySort}
-        currentSortOption={currentSortOption}/>
+        currentSortOption={currentSortOption} />
       <DropdownLabel
         searchedLabel={searchedLabel}
         searchByLabel={searchByLabel} />

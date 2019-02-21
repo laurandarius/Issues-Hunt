@@ -27,7 +27,7 @@ const DropdownLabel = (props) => {
           <CheckMarkLabel
             passID={label[0]}
             searchedLabel={searchedLabel}
-            currentLabel={label[0]}/>
+            currentLabel={label[0]} />
         </div>
         <div
           data-id={label[0]}

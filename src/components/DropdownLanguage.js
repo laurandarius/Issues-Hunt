@@ -32,7 +32,7 @@ const DropdownLanguage = (props) => {
           <CheckMarkLanguage
             passID={language}
             searchedLanguaged={searchedLanguaged}
-            currentLanguage={language}/>
+            currentLanguage={language} />
         </div>
         <div
           data-id={language}

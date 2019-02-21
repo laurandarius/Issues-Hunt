@@ -30,7 +30,7 @@ const DropdownSort = (props) => {
           <CheckMarkSort
             passID={option[0]}
             searchedSort={option[0]}
-            currentSortOption={currentSortOption}/>
+            currentSortOption={currentSortOption} />
         </div>
         <div
           data-id={option[0]}
