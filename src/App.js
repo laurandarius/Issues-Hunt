@@ -25,6 +25,7 @@ class App extends Component {
       spinner: 'hide',
       errorMessage: '',
       input:'',
+      readOnly: '',
       language:'',
       label:'',
       sortOption: '',
@@ -94,7 +95,8 @@ class App extends Component {
          returnedAPI: 'yes',
          spinner: 'hide',
          lastPage: parseInt(lastPage),
-         pageLink: pageLink
+         pageLink: pageLink,
+         readOnly: ''
        });
      },
      err => {
@@ -180,7 +182,8 @@ class App extends Component {
       issuesCount: "0",
       language: '',
       label: '',
-      sortOption: ''
+      sortOption: '',
+      readOnly: 'readonly'
     },
       () => this.callAPI()
     );
@@ -291,6 +294,7 @@ class App extends Component {
         <div className="container">
           <Description />
           <SearchBar
+            readOnly={this.state.readOnly}
             searchInput={event => this.searchInput(event)}
             searchIssues={event => this.search(event)}
             input={this.state.input}

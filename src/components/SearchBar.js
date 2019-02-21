@@ -9,7 +9,8 @@ const SearchBar = (props) => {
   const {
     searchIssues,
     input,
-    searchInput
+    searchInput,
+    readOnly
   } = props;
 
   return (
@@ -21,6 +22,7 @@ const SearchBar = (props) => {
         <FormControl
           value={input}
           onChange={searchInput}
+          readOnly={readOnly}
           placeholder="Search all issues.."
           aria-label="Search Input"
           aria-describedby="basic-addon2" />
