@@ -11,6 +11,8 @@ const DropdownLabel = (props) => {
     ['discussion', 'Discussion'],
     ['enchancement', 'Enhancement'],
     ['bug', 'Bug'],
+    ['question', 'Question'],
+    ['invalid', 'Invalid'],
     ['hacktoberfest', 'Hacktoberfest']
   ];
 
