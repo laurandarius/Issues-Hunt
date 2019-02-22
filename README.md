@@ -12,9 +12,9 @@ Issues such as “good first issue” or “help wanted” are difficult to find
 ![Screenshots](./public/search_example.png)
 
 ## Running locally
-* `git clone https://github.com/fulin426/Issues-Hunt.git`
-* `npm install`
-* `npm start`
+1. `git clone https://github.com/fulin426/Issues-Hunt.git`
+2. `npm install`
+3. `npm start`
 
 ## Technology ##
 React, HTML, CSS, Bootstrap, Axios, Font-Awesome, Github API
