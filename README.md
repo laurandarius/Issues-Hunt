@@ -7,7 +7,7 @@ Issues such as “good first issue” or “help wanted” are difficult to find
 * User can filter results by language and label
 * User can then sort the results
 
-## [Live Demo](https://issueshunt.herokuapp.com/)
+### [Live Demo](https://issueshunt.herokuapp.com/)
 
 ![Screenshots](./public/search_example.png)
 

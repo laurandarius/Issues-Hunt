@@ -10,6 +10,18 @@ const displayDate = (text) => {
   let yearSlice = date.slice(11,15);
   return `${monthDateSlice}, ${yearSlice}`;
 }
+//as of now haven't decided where to put repo link in card
+//slice to only display repo name
+// const displayRepo = (repository_url) => {
+//   let slicedName = repository_url.slice(29, repository_url.length);
+//   console.log(slicedName);
+//   return slicedName;
+// }
+//construct repo link
+// const repoLink = (repository_url) => {
+//   return `https://github.com/${displayRepo(repository_url)}`;
+// }
+
 //adjust container at different screen sizes
 const ResultsList = (props) => {
   const results = props.issuesReturn.items.map(item =>
@@ -21,8 +33,7 @@ const ResultsList = (props) => {
         <div className="title-description-container">
           <div className="issues-label-wrapper">
             <p className="issues-title">
-              <span className="issues-github-link"></span>
-              <a href={item.html_url}>{item.title}</a>
+              <a href={item.html_url}> {item.title}</a>
             </p>
             <Labels labels={item.labels} />
           </div>
