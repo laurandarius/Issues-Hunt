@@ -23,7 +23,7 @@ const Header = () => {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/fulin426">
+            href="https://github.com/fulin426/Issues-Hunt">
             <i className="fab fa-github-square fa-2x header-icon"></i>
           </a>
         </div>
