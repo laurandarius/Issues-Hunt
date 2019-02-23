@@ -16,5 +16,13 @@ Issues such as “good first issue” or “help wanted” are difficult to find
 2. `npm install`
 3. `npm start`
 
+Api keys are hidden from repository. To run locally deleted line 4 `import Keys from './config/keys';` App.js and delete `&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}` from line 72. Api calls are limited to 60 per hour without clientID.
+
+To learn more
+#### [Increasing GitHub Api Rate Limit](https://developer.github.com/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications)
+
+or obtain you own Client ID and Client Secret by following the instructions below
+#### [How to Obtain Client ID and Client Secret](https://auth0.com/docs/connections/social/github)
+
 ## Technology ##
 React, HTML, CSS, Bootstrap, Axios, Font-Awesome, Github API

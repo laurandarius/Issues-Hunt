@@ -66,7 +66,7 @@ class App extends Component {
       sortOption = '';
     } else {
       //parameters already set in DropdownSort.js
-      sortOption = sortOption = this.state.sortOption;
+      sortOption = this.state.sortOption;
     }
 
     axios.get(`https://api.github.com/search/issues?q=${value}+state:open${labelParameter}${languageParameter}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}${sortOption}&per_page=25`)
