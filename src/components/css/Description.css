@@ -15,4 +15,7 @@
   .description-wrapper {
       width: 19rem;
   }
+  .description {
+      padding: .8rem;
+  }
 }

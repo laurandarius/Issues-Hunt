@@ -21,15 +21,17 @@ const ResultsHeader = (props) => {
       <div className="open-issues">
         <i className="fas fa-exclamation-circle"></i> {totalCount} Open
       </div>
-      <DropdownSort
-        searchBySort={searchBySort}
-        currentSortOption={currentSortOption} />
-      <DropdownLabel
-        searchedLabel={searchedLabel}
-        searchByLabel={searchByLabel} />
-      <DropdownLanguage
-        searchedLanguaged={searchedLanguaged}
-        searchByLanguage={searchByLanguage} />
+      <div className="dropdown-btn-container">
+        <DropdownSort
+          searchBySort={searchBySort}
+          currentSortOption={currentSortOption} />
+        <DropdownLabel
+          searchedLabel={searchedLabel}
+          searchByLabel={searchByLabel} />
+        <DropdownLanguage
+          searchedLanguaged={searchedLanguaged}
+          searchByLanguage={searchByLanguage} />
+      </div>
     </Card>
   );
 }

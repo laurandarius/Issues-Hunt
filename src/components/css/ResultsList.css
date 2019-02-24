@@ -30,8 +30,10 @@
 
 .comments {
   width: 4rem;
-  float: right;
   font-size: 14px;
+  height: 100%;
+  float: right;
+  display: inline-block;
 }
 
 .comments-link, .issues-github-link  {
@@ -70,10 +72,6 @@
   font-size: .8rem;
 }
 
-.description-avatar-wrapper{
-
-}
-
 .issues-description {
   margin-bottom: 0;
   font-size: 12px;
@@ -83,4 +81,10 @@
   width: 18px;
   margin-left: .5rem;
   border-radius: 1px;
+}
+
+@media only screen and (max-width: 576px) {
+  .comments {
+    display: none;
+  }
 }

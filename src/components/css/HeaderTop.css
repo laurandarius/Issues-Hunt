@@ -43,3 +43,19 @@
  top: 15px;
  right: 15px;
 }
+
+@media only screen and (max-width: 576px) {
+  .header-icon {
+    margin: .1rem;
+  }
+
+  .header-title {
+    line-height: 6rem;
+  }
+
+  .contacts-wrapper {
+   position: absolute;
+   top: 5px;
+   right: 5px;
+  }
+}
