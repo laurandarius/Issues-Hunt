@@ -35,7 +35,7 @@ const PaginationWidget = (props) => {
     ];
   }
   //middle configeration
-  if (selectedPage > 5 && selectedPage <= lastPage - 5) {
+  if (selectedPage >= 5 && selectedPage <= lastPage - 5) {
     pages = [
       firstPage,
       '..',

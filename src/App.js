@@ -183,7 +183,8 @@ class App extends Component {
       language: '',
       label: '',
       sortOption: '',
-      readOnly: 'readonly'
+      readOnly: 'readonly',
+      selectedPage: 1
     },
       () => this.callAPI()
     );
