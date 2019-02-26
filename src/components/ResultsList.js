@@ -1,30 +1,31 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import Labels from './Labels.js';
+import Labels from './Labels';
+import Comments from './Comments';
 import './css/ResultsList.css';
 
-//convert utc to readable date
+// convert utc to readable date
 const displayDate = (text) => {
-  let date = new Date(text).toString();
-  let monthDateSlice = date.slice(4,10);
-  let yearSlice = date.slice(11,15);
+  const date = new Date(text).toString();
+  const monthDateSlice = date.slice(4, 10);
+  const yearSlice = date.slice(11, 15);
   return `${monthDateSlice}, ${yearSlice}`;
-}
-//as of now haven't decided where to put repo link in card
-//slice to only display repo name
+};
+// as of now haven't decided where to put repo link in card
+// slice to only display repo name
 // const displayRepo = (repository_url) => {
 //   let slicedName = repository_url.slice(29, repository_url.length);
 //   console.log(slicedName);
 //   return slicedName;
 // }
-//construct repo link
+// construct repo link
 // const repoLink = (repository_url) => {
 //   return `https://github.com/${displayRepo(repository_url)}`;
 // }
 
-//adjust container at different screen sizes
 const ResultsList = (props) => {
-  const results = props.issuesReturn.items.map(item =>
+  const { issuesReturn } = props;
+  const results = issuesReturn.items.map(item =>
     <Card key={item.id}>
       <div className="issues-container">
         <div className="exclamation">
@@ -33,12 +34,16 @@ const ResultsList = (props) => {
         <div className="title-description-container">
           <div className="issues-label-wrapper">
             <p className="issues-title">
-              <a href={item.html_url}> {item.title}</a>
+              <a href={item.html_url}>
+                {item.title}
+              </a>
             </p>
             <Labels labels={item.labels} />
           </div>
           <div className="issues-body">
-            <p className="issues-body-text">{item.body}...</p>
+            <p className="issues-body-text">
+              {item.body}...
+            </p>
           </div>
           <div className="description-avatar-wrapper">
             <p className="issues-description">
@@ -52,13 +57,9 @@ const ResultsList = (props) => {
             </a>
           </div>
         </div>
-        <div className="comments">
-          <a
-            className="comments-link"
-            href={item.html_url}>
-            <i className="far fa-comment-alt"></i> {item.comments}
-          </a>
-        </div>
+        <Comments
+        Html_url={item.html_url}
+        Comments={item.comments}/>
       </div>
     </Card>
   );
@@ -68,6 +69,6 @@ const ResultsList = (props) => {
       {results}
     </div>
   );
-}
+};
 
 export default ResultsList;
