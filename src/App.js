@@ -71,7 +71,7 @@ class App extends Component {
 
     axios.get(`https://api.github.com/search/issues?q=${value}+state:open${labelParameter}${languageParameter}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}${sortOption}&per_page=25`)
      .then(res => {
-       console.log(res.data);
+       // console.log(res.data);
        // console.log(res.headers);
        let headers;
        let pageLink;
@@ -128,7 +128,6 @@ class App extends Component {
 
   searchByLanguage(event) {
     if (this.state.spinner === 'show') {
-      console.log('clicked');
       return;
     } else {
       this.setState({
@@ -257,8 +256,6 @@ class App extends Component {
   callApiFromWidget() {
     axios.get(`${this.state.pageLink}${this.state.selectedPage}`)
      .then(res => {
-       console.log(res.data);
-       console.log(res.headers);
        this.setState({
          issues: res.data,
          returnedAPI: 'yes',
