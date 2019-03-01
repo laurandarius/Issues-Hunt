@@ -26,17 +26,20 @@ const DropdownLanguage = (props) => {
     <Dropdown.Item
       key={language}
       data-id={language}
-      onClick={searchByLanguage}>
+      onClick={searchByLanguage}
+    >
       <div className="checkmark-list-wrapper">
         <div className="checkmark-wrapper">
           <CheckMarkLanguage
             passID={language}
             searchedLanguaged={searchedLanguaged}
-            currentLanguage={language} />
+            currentLanguage={language}
+          />
         </div>
         <div
           data-id={language}
-          className="dropdown-text-wrapper">
+          className="dropdown-text-wrapper"
+        >
           {language}
         </div>
       </div>
@@ -47,7 +50,8 @@ const DropdownLanguage = (props) => {
     <DropdownButton
       id="LanguageDropdown"
       title="Language"
-      className="DropdownButton">
+      className="DropdownButton"
+    >
       {DropdownItems}
     </DropdownButton>
   );

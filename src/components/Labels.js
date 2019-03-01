@@ -1,12 +1,12 @@
 import React from 'react';
 
 const hexToRgb = hex => {
-    let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-    } : null;
+  let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+  } : null;
 }
 
 const decideFontColor = (num) => {
@@ -23,7 +23,8 @@ const Labels = (props) => {
     <div
       key={label.id}
       style={{ "backgroundColor": "#" + label.color }}
-      className="issue-label">
+      className="issue-label"
+    >
       <div style={{"color": decideFontColor(hexToRgb(`#${label.color}`).g)}}>
         {label.name}
       </div>

@@ -4,7 +4,7 @@ const Welcome = () => {
   return(
     <div className="blank-container">
       <div className="error-handle-wrapper">
-        <i className="fas fa-exclamation-circle fa-2x"></i>
+        <i className="fas fa-exclamation-circle fa-2x" />
         <div className="no-results-found">
           <h5>Welcome to Issues Hunt</h5>
           <p>

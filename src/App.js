@@ -155,7 +155,7 @@ class App extends Component {
   clearSearchbar() {
     this.setState({
       issues: '',
-      issuesCount: "0",
+      issuesCount: '0',
       input: '',
       language: '',
       label: '',

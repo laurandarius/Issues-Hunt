@@ -12,8 +12,9 @@ const Comments = (props) => {
       <div className="comments">
         <a
           className="comments-link"
-          href={Html_url}>
-          <i className="far fa-comment-alt"></i> {Comments}
+          href={Html_url}
+        >
+          <i className="far fa-comment-alt" /> {Comments}
         </a>
       </div>
     );

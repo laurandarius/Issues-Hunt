@@ -13,7 +13,8 @@ const PaginationWidgetNumber = (props) => {
       <button
         data-id={currentPage}
         className="selected-page individual-number"
-        onClick={selectPageNumber}>
+        onClick={selectPageNumber}
+      >
         {currentPage}
       </button>
     );
@@ -22,7 +23,8 @@ const PaginationWidgetNumber = (props) => {
       <button
         data-id={currentPage}
         className="individual-number"
-        onClick={selectPageNumber}>
+        onClick={selectPageNumber}
+      >
         {currentPage}
       </button>
     );

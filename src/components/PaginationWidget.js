@@ -63,20 +63,23 @@ const PaginationWidget = (props) => {
       key={page}
       currentPage={page}
       selectedPage={selectedPage}
-      selectPageNumber={selectPageNumber} />
+      selectPageNumber={selectPageNumber}
+    />
   );
 
   return (
     <div className="widget-container">
       <button
         className="previous-button"
-        onClick={previousButton}>
+        onClick={previousButton}
+      >
         Previous
       </button>
       {widget}
       <button
         className="next-button"
-        onClick={nextButton}>
+        onClick={nextButton}
+      >
         Next
       </button>
     </div>

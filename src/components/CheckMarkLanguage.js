@@ -10,9 +10,8 @@ const CheckMarkLanguage = (props) => {
   //return check mark only if state matches current chosen language
   if(currentLanguage === searchedLanguaged) {
     return (
-      <div
-        data-id={passID}>
-        <i className="fas fa-check"></i>
+      <div data-id={passID}>
+        <i className="fas fa-check" />
       </div>
     );
   }
@@ -20,7 +19,8 @@ const CheckMarkLanguage = (props) => {
   return (
     <div
       data-id={passID}
-      className="icon-box">
+      className="icon-box"
+    >
     </div>
   );
 }

@@ -29,7 +29,7 @@ const ResultsList = (props) => {
     <Card key={item.id}>
       <div className="issues-container">
         <div className="exclamation">
-          <i className="fas fa-exclamation-circle fa-lg"></i>
+          <i className="fas fa-exclamation-circle fa-lg" />
         </div>
         <div className="title-description-container">
           <div className="issues-label-wrapper">
@@ -53,13 +53,15 @@ const ResultsList = (props) => {
               <img
                 className="user-avatar"
                 src={item.user.avatar_url}
-                alt={item.user.login} />
+                alt={item.user.login}
+              />
             </a>
           </div>
         </div>
         <Comments
-        Html_url={item.html_url}
-        Comments={item.comments}/>
+          Html_url={item.html_url}
+          Comments={item.comments}
+        />
       </div>
     </Card>
   );

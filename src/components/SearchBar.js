@@ -17,7 +17,7 @@ const SearchBar = (props) => {
     <Form
       className="SearchBar"
       onSubmit={searchIssues}
-      >
+    >
       <InputGroup>
         <FormControl
           value={input}
@@ -25,11 +25,13 @@ const SearchBar = (props) => {
           readOnly={readOnly}
           placeholder="Search all issues.."
           aria-label="Search Input"
-          aria-describedby="basic-addon2" />
+          aria-describedby="basic-addon2"
+        />
         <InputGroup.Append>
           <Button
             className="search-button"
-            onClick={searchIssues}>
+            onClick={searchIssues}
+          >
             Search
           </Button>
         </InputGroup.Append>

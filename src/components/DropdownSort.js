@@ -6,12 +6,12 @@ import CheckMarkSort from './CheckMarkSort';
 
 const DropdownSort = (props) => {
   const sortOptions = [
-  ['', 'Best Match (default)'],
-  ['&sort=created&order=desc','Newest'],
-  ['&sort=created&order=asc', 'Oldest'],
-  ['&sort=comments&order=desc', 'Most Comments'],
-  ['&sort=comments&order=asc', 'Least Comments'],
-  ['&sort=Updated&order=desc', 'Recently Updated'],
+    ['', 'Best Match (default)'],
+    ['&sort=created&order=desc','Newest'],
+    ['&sort=created&order=asc', 'Oldest'],
+    ['&sort=comments&order=desc', 'Most Comments'],
+    ['&sort=comments&order=asc', 'Least Comments'],
+    ['&sort=Updated&order=desc', 'Recently Updated']
   ];
 
   const {
@@ -24,17 +24,20 @@ const DropdownSort = (props) => {
     <Dropdown.Item
       key={option}
       data-id={option[0]}
-      onClick={searchBySort}>
+      onClick={searchBySort}
+    >
       <div className="checkmark-list-wrapper">
         <div className="checkmark-wrapper">
           <CheckMarkSort
             passID={option[0]}
             searchedSort={option[0]}
-            currentSortOption={currentSortOption} />
+            currentSortOption={currentSortOption}
+          />
         </div>
         <div
           data-id={option[0]}
-          className="dropdown-text-wrapper">
+          className="dropdown-text-wrapper"
+        >
           {option[1]}
         </div>
       </div>
@@ -45,7 +48,8 @@ const DropdownSort = (props) => {
     <DropdownButton
       id="Dropdownsort"
       title="Sort"
-      className="DropdownButton">
+      className="DropdownButton"
+    >
       {DropdownItems}
     </DropdownButton>
   );

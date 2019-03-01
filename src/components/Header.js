@@ -18,13 +18,13 @@ const Header = () => {
             target="_blank"
             rel="noopener noreferrer"
             href="https://www.linkedin.com/in/fu-lin-liu/">
-            <i className="fab fa-linkedin fa-2x header-icon"></i>
+            <i className="fab fa-linkedin fa-2x header-icon" />
           </a>
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/fulin426/Issues-Hunt">
-            <i className="fab fa-github-square fa-2x header-icon"></i>
+            <i className="fab fa-github-square fa-2x header-icon" />
           </a>
         </div>
       </div>
