@@ -115,7 +115,7 @@ class App extends Component {
     //disable buttons when waiting for API
     //when spinner is showing
     if (this.state.spinner === 'show') {
-      return;
+      return null;
     } else {
       this.setState({
         label: `"${event.target.dataset.id}"`,
@@ -128,7 +128,7 @@ class App extends Component {
 
   searchByLanguage(event) {
     if (this.state.spinner === 'show') {
-      return;
+      return null;
     } else {
       this.setState({
         language: event.target.dataset.id,
@@ -141,7 +141,7 @@ class App extends Component {
 
   searchBySort(event) {
     if (this.state.spinner === 'show') {
-      return;
+      return null;
     } else {
       this.setState({
         sortOption: event.target.dataset.id,

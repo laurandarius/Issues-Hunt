@@ -2,6 +2,7 @@ import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import CheckMarkLanguage from './CheckMarkLanguage';
+import './css/DropDown.css';
 
 const DropdownLanguage = (props) => {
   const languageNames = [

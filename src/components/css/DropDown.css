@@ -1,0 +1,65 @@
+/* override default dropdown CSS */
+.DropdownButton {
+  float: right;
+  margin-left: .3rem;
+  margin-right: .3rem;
+  color: #586069;
+}
+
+.dropdown-toggle {
+  color: #444444;
+  background: #F3F3F3;
+  border: 1px #DADADA solid;
+  padding: 5px 10px;
+  border-radius: 2px;
+  font-weight: bold;
+  font-size: 14px;
+  outline: none;
+}
+
+.primary.dropdown-toggle {
+  color: #fff;
+  background-color: #0062cc;
+  border-color: #005cbf;
+}
+
+.dropdown-menu {
+  min-width: 8rem;
+}
+
+.dropdown-item {
+  padding: .25rem .5rem;
+  font-size: 14px;
+}
+
+.dropdown-item:hover {
+  color: #fff;
+  background-color: #0062cc;
+}
+
+.dropdown-text-wrapper {
+  margin-left: .2rem;
+}
+
+.icon-box {
+  width: 14px;
+  height: 14px;
+}
+
+.DropdownButton  {
+  display: inline-block;
+}
+
+.checkmark-list-wrapper, .checkmark-wrapper, .dropdown-text-wrapper {
+  display: inline-block;
+}
+
+.dropdown-btn-container {
+  float : right;
+}
+
+@media only screen and (max-width: 576px) {
+  .dropdown-btn-container {
+    float: left;
+  }
+}
