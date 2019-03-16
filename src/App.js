@@ -170,7 +170,10 @@ class App extends Component {
     this.showSpinner();
     this.callAPI();
   }
-
+  //Make API on load so user can see the data right away
+  componentDidMount() {
+    this.searchNormal();
+  }
   //only search for open issues
   search(event) {
     event.preventDefault();
