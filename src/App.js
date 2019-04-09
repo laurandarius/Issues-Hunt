@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
-import Keys from './config/keys';
 //Import Components
 import Header from './components/Header';
 import Description from './components/Description';
@@ -14,6 +13,22 @@ import NoResults from './components/NoResults';
 import PaginationWidget from './components/PaginationWidget';
 import Footer from './components/Footer';
 import Spinner from './components/Spinner';
+// import Keys from './config/keys'; 
+ const Keys = {};
+
+const guestAPIMode = true; /* Api calls are limited to 60 per hour in guestAPIMode */
+
+/* When making guestAPIMode = false, also comment out const Keys = {} and uncomment the import Keys line above. 
+   Setup your keys by making a config folder in src ./config/keys.js paste in the following:
+ 
+  exports.Keys = { 
+    clientID: '<ReplaceMe>', 
+    clientSecret: '<ReplaceMe>'
+  };
+
+  Replace both <ReplaceMe>'s with a clientID and clientSecret obtained as explained in the README -- How to Obtain Client ID and Client Secret.
+  Homepage URL and Authorization callback URL can both just be http://localhost:3000/ or your equivalent
+*/
 
 class App extends Component {
   constructor(props) {
@@ -68,8 +83,8 @@ class App extends Component {
       //parameters already set in DropdownSort.js
       sortOption = this.state.sortOption;
     }
-
-    axios.get(`https://api.github.com/search/issues?q=${value}+state:open${labelParameter}${languageParameter}&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}${sortOption}&per_page=25`)
+    const clientAPIKeys = guestAPIMode ? '' : `&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}`;
+    axios.get(`https://api.github.com/search/issues?q=${value}+state:open${labelParameter}${languageParameter}${clientAPIKeys}${sortOption}&per_page=25`)
      .then(res => {
        // console.log(res.data);
        // console.log(res.headers);
