@@ -16,8 +16,8 @@ Issues such as “good first issue” or “help wanted” are difficult to find
 2. `npm install`
 3. `npm start`
 
-This app uses the following GitHub Developer REST API
-#### [Search Issues](https://developer.github.com/v3/search/#search-issues-and-pull-requests)
+Information for Search Issues as part of GitHub Developer Search API
+#### [GitHub Search API](https://developer.github.com/v3/search/#search-issues-and-pull-requests)
 
 By default this repository does not include API keys used in development. API calls are limited to 60 per hour without Client ID and Client Secret.
 

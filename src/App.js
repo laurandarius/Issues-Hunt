@@ -112,10 +112,10 @@ class App extends Component {
          pageLink: pageLink,
          readOnly: ''
        });
-     },
-     err => {
+     })
+     .catch(err => {
        console.log(err.message);
-       this.setState({errorMessage: err.message});
+       this.setState({ errorMessage: err.message });
      })
   }
 
