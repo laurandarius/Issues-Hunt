@@ -15,7 +15,7 @@ import Footer from './components/Footer';
 import Spinner from './components/Spinner';
 import Keys from './config/keys';
 // const Keys = {}
-const guestAPIMode = false; /* Api calls are limited to 60 per hour in guestAPIMode */
+const guestAPIMode = true; /* Api calls are limited to 60 per hour in guestAPIMode */
 
 /* When making guestAPIMode = false, also comment out const Keys = {} and uncomment the import Keys line above.
    Setup your keys by making a config folder in src ./config/keys.js paste in the following:
