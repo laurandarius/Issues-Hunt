@@ -13,16 +13,15 @@ import NoResults from './components/NoResults';
 import PaginationWidget from './components/PaginationWidget';
 import Footer from './components/Footer';
 import Spinner from './components/Spinner';
-// import Keys from './config/keys'; 
- const Keys = {};
-
+// import Keys from './config/keys';
+const Keys = {}
 const guestAPIMode = true; /* Api calls are limited to 60 per hour in guestAPIMode */
 
-/* When making guestAPIMode = false, also comment out const Keys = {} and uncomment the import Keys line above. 
+/* When making guestAPIMode = false, also comment out const Keys = {} and uncomment the import Keys line above.
    Setup your keys by making a config folder in src ./config/keys.js paste in the following:
- 
-  exports.Keys = { 
-    clientID: '<ReplaceMe>', 
+
+  exports.Keys = {
+    clientID: '<ReplaceMe>',
     clientSecret: '<ReplaceMe>'
   };
 
@@ -87,7 +86,7 @@ class App extends Component {
     axios.get(`https://api.github.com/search/issues?q=${value}+state:open${labelParameter}${languageParameter}${clientAPIKeys}${sortOption}&per_page=25`)
      .then(res => {
        // console.log(res.data);
-       // console.log(res.headers);
+       console.log(res.headers);
        let headers;
        let pageLink;
        //set as 0 as default

@@ -16,7 +16,10 @@ Issues such as “good first issue” or “help wanted” are difficult to find
 2. `npm install`
 3. `npm start`
 
-Api keys are hidden from repository. To run locally delete line 4 `import Keys from './config/keys';` from App.js and delete `&client_id=${Keys.clientID}&client_secret=${Keys.clientSecret}` from line 72. Api calls are limited to 60 per hour without Client ID and Client Secret.
+This app uses the following GitHub Developer REST API
+#### [Search Issues](https://developer.github.com/v3/search/#search-issues-and-pull-requests)
+
+By default this repository does not include API keys used in development. API calls are limited to 60 per hour without Client ID and Client Secret.
 
 To learn more
 #### [Increasing GitHub Api Rate Limit](https://developer.github.com/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications)

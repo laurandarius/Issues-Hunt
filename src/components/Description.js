@@ -5,9 +5,9 @@ const Description = () => {
   return (
     <div className="description">
       <div className="description-wrapper">
-        <p>
+        <h4>
           Search over 22 million open issues across GitHub
-        </p>
+        </h4>
       </div>
     </div>
   );
