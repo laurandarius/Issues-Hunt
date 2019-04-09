@@ -21,7 +21,6 @@ Information for Search Issues as part of GitHub Developer Search API
 
 By default this repository does not include API keys used in development. API calls are limited to 60 per hour without Client ID and Client Secret.
 
-To learn more
 #### [Increasing GitHub Api Rate Limit](https://developer.github.com/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications)
 
 or obtain you own Client ID and Client Secret by following the instructions below
