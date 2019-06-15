@@ -12,7 +12,7 @@
 }
 
 .issues-container {
-  padding: .5rem;
+  padding: 0.5rem;
   background-color: #fafbfc;
 }
 
@@ -36,23 +36,24 @@
   display: inline-block;
 }
 
-.comments-link, .issues-github-link  {
+.comments-link,
+.issues-github-link {
   color: #586069;
 }
 
- /* from github */
+/* from github */
 .issues-label-container {
   display: inline-block;
 }
 
 .issue-label {
   border-radius: 2px;
-  box-shadow: inset 0 -1px 0 rgba(27,31,35,.12);
+  box-shadow: inset 0 -1px 0 rgba(27, 31, 35, 0.12);
   font-size: 12px;
   font-weight: 600;
   height: 20px;
   line-height: 15px;
-  padding: .15em 4px;
+  padding: 0.15em 4px;
   margin-left: 8px;
 }
 
@@ -69,7 +70,7 @@
 }
 
 .issues-body-text {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .issues-description {
@@ -79,8 +80,13 @@
 
 .user-avatar {
   width: 18px;
-  margin-left: .5rem;
+  margin-left: 0.5rem;
   border-radius: 1px;
+}
+
+.repo-name {
+  color: #586069;
+  margin-right: 0.5rem;
 }
 
 @media only screen and (max-width: 576px) {

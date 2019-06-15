@@ -1,34 +1,27 @@
-import React from 'react';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import CheckMarkLanguage from './CheckMarkLanguage';
-import './css/DropDown.css';
+import React from "react";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import CheckMarkLanguage from "./CheckMarkLanguage";
+import "./css/DropDown.css";
 
-const DropdownLanguage = (props) => {
+const DropdownLanguage = props => {
   const languageNames = [
-    'JavaScript',
-    'Python',
-    'Java',
-    'HTML',
-    'CSS',
-    'Ruby',
-    'C#',
-    'PHP',
-    'C++',
+    "JavaScript",
+    "Python",
+    "Java",
+    "HTML",
+    "CSS",
+    "Ruby",
+    "C#",
+    "PHP",
+    "C++"
   ];
 
-  const {
-    searchByLanguage,
-    searchedLanguaged,
-  } = props;
+  const { searchByLanguage, searchedLanguaged } = props;
 
-//conditional rendering for checkmark in dropdown list
-  const DropdownItems = languageNames.map(language =>
-    <Dropdown.Item
-      key={language}
-      data-id={language}
-      onClick={searchByLanguage}
-    >
+  //conditional rendering for checkmark in dropdown list
+  const DropdownItems = languageNames.map(language => (
+    <Dropdown.Item key={language} data-id={language} onClick={searchByLanguage}>
       <div className="checkmark-list-wrapper">
         <div className="checkmark-wrapper">
           <CheckMarkLanguage
@@ -37,17 +30,14 @@ const DropdownLanguage = (props) => {
             currentLanguage={language}
           />
         </div>
-        <div
-          data-id={language}
-          className="dropdown-text-wrapper"
-        >
+        <div data-id={language} className="dropdown-text-wrapper">
           {language}
         </div>
       </div>
     </Dropdown.Item>
-  );
+  ));
 
-  return(
+  return (
     <DropdownButton
       id="LanguageDropdown"
       title="Language"
@@ -56,6 +46,6 @@ const DropdownLanguage = (props) => {
       {DropdownItems}
     </DropdownButton>
   );
-}
+};
 
 export default DropdownLanguage;
