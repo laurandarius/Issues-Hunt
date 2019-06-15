@@ -14,12 +14,16 @@ const displayDate = text => {
 
 // slice to only display repo name
 const displayRepo = repository_url => {
-  let slicedName = repository_url.slice(29, repository_url.length);
-  return slicedName;
+  let slicedName = repository_url.split("/");
+  console.log(slicedName);
+  console.log(slicedName[4]);
+  //return project name
+  return slicedName[4];
 };
 //construct repo link
-const repoLink = repository_url => {
-  return `https://github.com/${displayRepo(repository_url)}`;
+const repoLink = (repository_url, username) => {
+  // github url plus user name plus repo name
+  return `https://github.com/${username}/${displayRepo(repository_url)}`;
 };
 
 const ResultsList = props => {
@@ -34,10 +38,17 @@ const ResultsList = props => {
         <div className="title-description-container">
           <div className="issues-label-wrapper">
             <p className="issues-title">
-              <a className="repo-name" href={repoLink(item.html_url)}>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                className="repo-name"
+                href={repoLink(item.html_url, item.user.login)}
+              >
                 {displayRepo(item.html_url)}
               </a>
-              <a href={item.html_url}>{item.title}</a>
+              <a target="_blank" rel="noopener noreferrer" href={item.html_url}>
+                {item.title}
+              </a>
             </p>
             <Labels labels={item.labels} />
           </div>
@@ -47,7 +58,12 @@ const ResultsList = props => {
           <div className="description-avatar-wrapper">
             <p className="issues-description">
               #{item.number} opened on {displayDate(item.created_at)} by{" "}
-              <a href={item.user.html_url} alt={item.user.login}>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={item.user.html_url}
+                alt={item.user.login}
+              >
                 {item.user.login}
               </a>
             </p>
