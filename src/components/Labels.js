@@ -1,43 +1,38 @@
-import React from 'react';
-
+import React from "react";
+// calculate color contrast
 const hexToRgb = hex => {
   let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result ? {
-      r: parseInt(result[1], 16),
-      g: parseInt(result[2], 16),
-      b: parseInt(result[3], 16)
-  } : null;
-}
+  return result
+    ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+      }
+    : null;
+};
 
-const decideFontColor = (num) => {
+const decideFontColor = num => {
   if (num > 140) {
-    return '#000000';
+    return "#000000";
   } else {
-    return '#ffffff';
+    return "#ffffff";
   }
-}
+};
 
-
-const Labels = (props) => {
-  const LabelsList = props.labels.map( label =>
+const Labels = props => {
+  const LabelsList = props.labels.map(label => (
     <div
       key={label.id}
-      style={{ "backgroundColor": "#" + label.color }}
+      style={{ backgroundColor: "#" + label.color }}
       className="issue-label"
     >
-      <div style={{"color": decideFontColor(hexToRgb(`#${label.color}`).g)}}>
+      <div style={{ color: decideFontColor(hexToRgb(`#${label.color}`).g) }}>
         {label.name}
       </div>
     </div>
-  );
+  ));
 
-  return (
-    <div className="issues-label-container">
-      {LabelsList}
-    </div>
-  );
-}
+  return <div className="issues-label-container">{LabelsList}</div>;
+};
 
 export default Labels;
-
-// item.

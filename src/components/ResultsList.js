@@ -23,7 +23,7 @@ const displayRepo = repository_url => {
 //construct repo link
 const repoLink = (repository_url, username) => {
   // github url plus user name plus repo name
-  return `https://github.com/${username}/${displayRepo(repository_url)}`;
+  return `https://github.com/${repository_url.slice(29)}`;
 };
 
 const ResultsList = props => {
@@ -42,7 +42,7 @@ const ResultsList = props => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="repo-name"
-                href={repoLink(item.html_url, item.user.login)}
+                href={repoLink(item.repository_url, item.user.login)}
               >
                 {displayRepo(item.html_url)}
               </a>
