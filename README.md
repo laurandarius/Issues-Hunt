@@ -12,7 +12,7 @@ Issues such as “good first issue” or “help wanted” are difficult to find
 ![Screenshots](./public/search_example.png)
 
 ## Running locally
-1. `git clone https://github.com/fulin426/Issues-Hunt.git`
+1. `git clone git@github.com:laurandarius/Issues-Hunt.git`
 2. `npm install`
 3. `npm start`
 
