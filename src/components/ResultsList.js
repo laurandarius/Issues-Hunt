@@ -29,6 +29,32 @@ const repoLink = (repository_url, username) => {
 const ResultsList = props => {
   console.log(props);
   const { issuesReturn } = props;
+
+  // Function to copy issue URL to clipboard
+  const copyToClipboard = (url, issueTitle) => {
+    if (navigator.clipboard && window.isSecureContext) {
+      // Use modern clipboard API
+      navigator.clipboard.writeText(url).then(() => {
+        alert(`✅ Issue URL copied to clipboard!\n"${issueTitle}"`);
+      }).catch(() => {
+        alert('❌ Failed to copy URL. Please try manually copying the link.');
+      });
+    } else {
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = url;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        alert(`✅ Issue URL copied to clipboard!\n"${issueTitle}"`);
+      } catch (err) {
+        alert('❌ Failed to copy URL. Please try manually copying the link.');
+      }
+      document.body.removeChild(textArea);
+    }
+  };
+
   const results = issuesReturn.items.map(item => (
     <Card key={item.id}>
       <div className="issues-container">
@@ -49,6 +75,23 @@ const ResultsList = props => {
               <a target="_blank" rel="noopener noreferrer" href={item.html_url}>
                 {item.title}
               </a>
+              <button 
+                className="copy-url-btn"
+                onClick={() => copyToClipboard(item.html_url, item.title)}
+                title="Copy issue URL to clipboard"
+                style={{
+                  marginLeft: '10px',
+                  padding: '2px 8px',
+                  fontSize: '12px',
+                  backgroundColor: '#007bff',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '3px',
+                  cursor: 'pointer'
+                }}
+              >
+                <i className="fas fa-copy"></i> Copy URL
+              </button>
             </p>
             <Labels labels={item.labels} />
           </div>
