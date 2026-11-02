@@ -7,3 +7,21 @@
   display: inline-block;
   cursor: pointer;
 }
+
+.clear-query-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.active-sort {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  color: #343a40;
+  font-size: 14px;
+}

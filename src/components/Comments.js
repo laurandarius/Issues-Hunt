@@ -12,6 +12,8 @@ const Comments = (props) => {
       <div className="comments">
         <a
           className="comments-link"
+          target='_blank'
+          rel="noopener noreferrer"
           href={Html_url}
         >
           <i className="far fa-comment-alt" /> {Comments}
