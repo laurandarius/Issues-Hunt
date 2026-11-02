@@ -264,7 +264,7 @@ class App extends Component {
       this.state.issues !== ""
     ) {
       return (
-        <ClearQuery clearSearchbar={event => this.clearSearchbar(event)} />
+        <ClearQuery clearSearchbar={event => this.clearSearchbar(event)} currentSortOption={this.state.sortOption}/>
       );
     }
     return null;
